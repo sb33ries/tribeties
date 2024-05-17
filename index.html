@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Form</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <form action="https://formspree.io/f/mvoeyjpz" method="POST">
+    <label>
+      Your name:
+      <input type="text" name="name" required>
+    </label>
+    <label>
+      Your email:
+      <input type="email" name="email" required>
+    </label>
+    <label>
+      Subject:
+      <input type="text" name="subject" required>
+    </label>
+    <label>
+      Your message:
+      <textarea name="message" required></textarea>
+    </label>
+    <label>
+      How did you hear about us?
+      <select name="referral">
+        <option value="friends">Friends</option>
+        <option value="search">Search Engine</option>
+        <option value="social">Social Media</option>
+        <option value="other">Other</option>
+      </select>
+    </label>
+    <label>
+      Subscribe to newsletter:
+      <input type="checkbox" name="subscribe" value="yes">
+    </label>
+    <button type="submit">Send</button>
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>
