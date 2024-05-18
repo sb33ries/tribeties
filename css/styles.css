@@ -1,46 +1,42 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+header h1 {
   margin: 0;
 }
 
-form {
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px; /* Rounded corners for the entire form */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 300px; /* Optional: Set a fixed width for better centering */
-  text-align: center; /* Center-align the content inside the form */
-  margin: auto; /* Center the form horizontally */
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
-label {
-  display: block;
-  margin-bottom: 10px;
+nav ul li {
+  display: inline;
+  margin-right: 20px;
 }
 
-input, textarea, select, button {
-  width: 90%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  resize: none;
-  font-family: inherit;
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
 }
 
-button {
-  background: #93acc5;
-  color: white;
-  border: none;
-  cursor: pointer;
-  width: auto; /* Set width to auto to fit content */
+section {
+  padding: 50px 20px;
 }
 
-button:hover {
-  background: #589ee4;
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
 }

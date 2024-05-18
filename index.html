@@ -3,26 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Form</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <title>W&M Hub</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <header>
+    <h1>W&M Hub</h1>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#workflow">Workflow</a></li>
+        <li><a href="#machine-learning">Machine Learning</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <form action="https://formspree.io/f/mvoeyjpz" method="POST">
-    <label>
-      Your name:
-      <input type="text" name="name" required>
-    </label>
-    <label>
-      Your email:
-      <input type="email" name="email" required>
-    </label>
-    <label>
-      Comments:
-      <textarea name="message" rows="3"></textarea>
-    </label>
-    <button type="submit">Submit</button>
-  </form>
+  <section id="about">
+    <h2>About W&M Hub</h2>
+    <p>Welcome to the W&M Hub, your central resource for all things related to workflow management and machine learning!</p>
+  </section>
 
+  <section id="workflow">
+    <h2>Workflow Management</h2>
+    <p>Learn about the latest techniques and tools for optimizing your workflows and increasing efficiency.</p>
+  </section>
+
+  <section id="machine-learning">
+    <h2>Machine Learning</h2>
+    <p>Explore the cutting-edge advancements in machine learning algorithms and applications.</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 W&M Hub. All rights reserved.</p>
+  </footer>
 </body>
 </html>
