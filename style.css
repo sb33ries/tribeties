@@ -6,13 +6,21 @@
     'Lucida Sans', Arial, sans-serif;
 }
 
+html {
+  scroll-behavior: smooth; /* Added smooth scrolling */
+}
+
 nav {
+  position: fixed; /* Make the nav fixed */
+  top: 0; /* Position it at the top */
+  width: 100%; /* Make it full width */
   height: 80px;
   background: #1598a1;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0rem calc((100vw - 1300px) / 2);
+  z-index: 1000; /* Ensure it stays above other content */
 }
 
 .logo {
@@ -35,6 +43,7 @@ nav a:hover {
 
 .hero {
   background: #1598a1;
+  padding-top: 80px; /* Add padding to avoid content being hidden behind the fixed nav */
 }
 
 .hero-container {
@@ -95,4 +104,58 @@ button:hover {
   .hero-container {
     grid-template-columns: 1fr;
   }
+}
+
+/* New styles for the info section */
+.info-section {
+  padding: 2rem calc((100vw - 1300px) / 2);
+  background: #f4f4f4;
+  color: #000;
+  text-align: center;
+}
+
+.info-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.info-container h2 {
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+}
+
+.info-container p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* New styles for the steps section */
+.steps-section {
+  padding: 2rem calc((100vw - 1300px) / 2);
+  background: #e6e6e6;
+  color: #000;
+  text-align: center;
+}
+
+.steps-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.steps-container h2 {
+  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+}
+
+.step {
+  margin-bottom: 1rem;
+}
+
+.step h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.step p {
+  font-size: 1.2rem;
 }
