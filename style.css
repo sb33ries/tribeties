@@ -112,6 +112,7 @@ button:hover {
   background: #f4f4f4;
   color: #000;
   text-align: center;
+  scroll-margin-top: 80px; /* Adjust this value to your desired offset */
 }
 
 .info-container {
@@ -131,7 +132,7 @@ button:hover {
 
 /* New styles for the steps section */
 .steps-section {
-  padding: 2rem calc((100vw - 1300px) / 2);
+  padding: 5rem calc((100vw - 1300px) / 2);
   background: #e6e6e6;
   color: #000;
   text-align: center;
@@ -161,7 +162,7 @@ button:hover {
 }
 
 /* Contact Section Styles */
-.contact-section {
+.contact {
   padding: 2rem calc((100vw - 1300px) / 2);
   background: #dcdcdc;
   color: #000;
