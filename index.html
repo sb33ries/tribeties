@@ -10,12 +10,12 @@
   <nav>
     <div class="logo">TribeTies</div>
     <div class="nav-items">
-      <a href="/">Home</a>
-      <a href="#about-section">About</a> <!-- Updated the About link -->
-      <a href="/">Contact</a>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a> 
     </div>
   </nav>
-  <section class="hero">
+  <section id="home" class="home">
     <div class="hero-container">
       <div class="column-left">
         <h1>Send Unlimited Messages</h1>
@@ -23,11 +23,11 @@
           No contracts or unwanted fees. Exclusive offer for new customers
           only.
         </p>
-        <button id="get-started-button">Get Started</button> <!-- Added ID -->
+        <button id="get-started-button">Get Started</button>
       </div>
       <div class="column-right">
         <img
-          src="./image-1.svg"
+          src="./talking.svg"
           alt="illustration"
           class="hero-image"
         />
@@ -35,7 +35,7 @@
     </div>
   </section>
   <!-- About Section -->
-  <section id="about-section" class="info-section">
+  <section id="about" class="info">
     <div class="info-container">
       <h2>About</h2>
       <p>
@@ -46,7 +46,7 @@
     </div>
   </section>
   <!-- New Steps Section -->
-  <section id="steps-section" class="steps-section">
+  <section id="steps" class="steps">
     <div class="steps-container">
       <h2>Get Started in 2 Simple Steps</h2>
       <div class="step">
@@ -59,6 +59,28 @@
       </div>
     </div>
   </section>
-  <script src="script.js"></script> <!-- Added script reference -->
+  <!-- Contact Section -->
+  <section id="contact-section" class="contact-section">
+    <div class="contact-container">
+      <h2>Contact Us</h2>
+      <p>If you have any questions, feel free to reach out to us:</p>
+      <form action="#" method="post">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+  <script src="script.js"></script>
 </body>
 </html>
