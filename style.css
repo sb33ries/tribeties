@@ -109,10 +109,10 @@ button:hover {
 /* New styles for the info section */
 .info-section {
   padding: 2rem calc((100vw - 1300px) / 2);
-  background: #f4f4f4;
+  background: #bfbfbf;
   color: #000;
   text-align: center;
-  scroll-margin-top: 80px; /* Adjust this value to your desired offset */
+  scroll-margin-top: 80px; 
 }
 
 .info-container {
@@ -133,9 +133,10 @@ button:hover {
 /* New styles for the steps section */
 .steps-section {
   padding: 5rem calc((100vw - 1300px) / 2);
-  background: #e6e6e6;
+  background: #73ca79;
   color: #000;
   text-align: center;
+  scroll-margin-top: 60px;
 }
 
 .steps-container {
@@ -164,7 +165,7 @@ button:hover {
 /* Contact Section Styles */
 .contact {
   padding: 2rem calc((100vw - 1300px) / 2);
-  background: #dcdcdc;
+  background: #7abce5;
   color: #000;
   text-align: center;
 }
