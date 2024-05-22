@@ -165,13 +165,13 @@ button:hover {
 /* Contact Section Styles */
 .contact {
   padding: 2rem calc((100vw - 1300px) / 2);
-  background: #7abce5;
+  background: #c0c0c1;
   color: #000;
   text-align: center;
 }
 
 .contact-container {
-  max-width: 800px;
+  max-width: 600px;
   margin: 0 auto;
 }
 
