@@ -15,7 +15,7 @@ nav {
   top: 0; /* Position it at the top */
   width: 100%; /* Make it full width */
   height: 80px;
-  background: #1598a1;
+  background: #85b0b9;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -42,7 +42,7 @@ nav a:hover {
 }
 
 .home {
-  background: #1598a1;
+  background: #258297;
   padding-top: 80px; /* Add padding to avoid content being hidden behind the fixed nav */
 }
 
@@ -133,7 +133,7 @@ button:hover {
 /* New styles for the steps section */
 .steps-section {
   padding: 5rem calc((100vw - 1300px) / 2);
-  background: #73ca79;
+  background: #6bb275;
   color: #000;
   text-align: center;
   scroll-margin-top: 60px;
@@ -218,3 +218,32 @@ button:hover {
   background: #fff;
   color: #000;
 }
+/* Webkit-based browsers (Chrome, Safari, etc.) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Internet Explorer 10+ */
+.ms-scrollbar {
+  scrollbar-face-color: #888;
+  scrollbar-track-color: transparent;
+  scrollbar-arrow-color: #000;
+  scrollbar-darkshadow-color: transparent;
+  scrollbar-highlight-color: transparent;
+  scrollbar-shadow-color: transparent;
+}
+
