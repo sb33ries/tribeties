@@ -162,6 +162,11 @@ button:hover {
   font-size: 1.2rem;
 }
 
+#countdown {
+  font-size: 1.2rem; /* Match the step p font-size */
+  font-family: inherit; /* Use the same font-family */
+}
+
 /* Contact Section Styles */
 .contact {
   padding: 2rem calc((100vw - 1300px) / 2);
