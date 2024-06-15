@@ -1,1 +1,1 @@
-# [https://sb33ries.github.io/pier/
+# [https://sb33ries.github.io/tribeties/
