@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="nav">
-        <h2>GRAINEE</h2>
+        <h2>TribeTies</h2>
         <div class="menu">
           <p>About us</p>
           <p>Our Mission</p>
@@ -18,8 +18,8 @@
       
       <div class="hero">
         <div class="hero-text">
-          <h1>Grainy Forever.</h1>
-          <p>Grainy animated blob for your modern website.</p>
+          <h1>Stay Connected.</h1>
+          <p>A website for W&M Students.</p>
           <div class="buttons">
             <a class="button primary" href="https://dribbble.com/shots/21248617-Daily-Design-Code-3-Grainy-Gradients-Blurry-Background" target="_blank">View Design</a>
             <a class="button secondary" href="https://twitter.com/juxtopposed" target="_blank">Stay Tuned</a>
@@ -32,7 +32,45 @@
           <div class="green blob"></div>
         </div>
       </div>
-      
+
+      <div class="info-container">
+        <h2 >About</h2>
+        <p>
+          TribeTies is dedicated to promoting connection between W&M students
+          on and off campus. We hope to reach this goal by pairing groups of 
+          students together that have similar interests every month. 
+        </p>
+        <br>
+        <p>
+          How does this work? All you need to do is to fill out the form below 
+          in the "Get Started" section. Your information will then be fed into
+          a machine learning model, which will group students together based
+          on similar feedback from the form. You will then receive pairings a
+          few days after the start of every month!
+        </p>
+      </div>
+      <!-- New Steps Section -->
+      <div class="steps-container">
+        <h2>Get Started in 2 Simple Steps</h2>
+        <div class="step">
+          <h3>Step 1:</h3>
+          <p>Fill out this form: <a href="https://forms.gle/X2B5an41bMi8Dz24A" target="_blank">https://forms.gle/X2B5an41bMi8Dz24A</a></p>
+        </div>
+        <div class="step">
+          <h3>Step 2:</h3>
+          <p>Wait for the start of the month to receive pairings in your email</p>
+        </div>
+        <div class="step">
+          <h3>Step 3:</h3>
+          <p>Meet with your groups!</p>
+        </div>
+        <br>
+        <div class="countdown">
+          <h3>Days until groups are released:</h3>
+          <p id="countdown"></p>
+        </div>
+      </div>
+
       <svg>
         <filter id='noiseFilter'>
           <feTurbulence 
@@ -50,6 +88,6 @@
       
       <!-- Not required -->
       <a href="https://www.youtube.com/watch?v=_ZFghigBmqo" target="_blank" class="youtube">Watch on YouTube</a>
-      
+      <script src="countdown.js"></script>
 </body>
 </html>
