@@ -254,18 +254,30 @@
 
 /* New styles for the steps section */
 .steps-section {
+  position: relative;
   padding: 5rem calc((100vw - 1300px) / 2);
-  background: #6bb275;
   color: #000;
   text-align: center;
   scroll-margin-top: 60px;
 }
 
+.steps-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #6bb275;
+  filter: url(#noiseFilter); /* Grainy texture */
+  z-index: -1;
+}
+
 .steps-container {
   max-width: 800px;
   margin: 0 auto;
+  position: relative;
 }
-
 .steps-container h2 {
   margin-bottom: 1.5rem;
   font-size: 2.5rem;
@@ -288,3 +300,4 @@
   font-size: 1.2rem; /* Match the step p font-size */
   font-family: inherit; /* Use the same font-family */
 }
+
