@@ -230,16 +230,30 @@
 
 /* New styles for the info section */
 .info-section {
-  padding: 2rem calc((100vw - 1300px) / 2);
-  background: #b85959;
+  position: relative;
+  padding: 5rem calc((100vw - 1300px) / 2);
   color: #000;
   text-align: center;
-  scroll-margin-top: 80px; 
+  scroll-margin-top: 60px;
+  width: 1400px;
+}
+
+.info-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #6bb275;
+  filter: url(#noiseFilter); /* Grainy texture */
+  z-index: -1;
 }
 
 .info-container {
   max-width: 800px;
   margin: 0 auto;
+  position: relative;
 }
 
 .info-container h2 {
@@ -259,6 +273,7 @@
   color: #000;
   text-align: center;
   scroll-margin-top: 60px;
+  width: 1400px;
 }
 
 .steps-section::before {
@@ -297,7 +312,7 @@
 }
 
 #countdown {
-  font-size: 1.2rem; /* Match the step p font-size */
+  font-size: 1.4rem; /* Match the step p font-size */
   font-family: inherit; /* Use the same font-family */
 }
 
