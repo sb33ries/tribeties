@@ -1,106 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <nav>
-    <div class="logo">TribeTies</div>
-    <div class="nav-items">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a> 
-    </div>
-  </nav>
-  <section id="home" class="home">
-    <div class="home-container">
-      <div class="column-left">
-        <h1>Send Unlimited Messages</h1>
-        <p>
-          No contracts or unwanted fees. Exclusive offer for new customers
-          only.
-        </p>
-        <button id="get-started-button">Get Started</button>
-      </div>
-      <div class="column-right">
-        <img
-          src="./talking.svg"
-          alt="illustration"
-          class="hero-image"
-        />
-      </div>
-    </div>
-  </section>
-  <!-- About Section -->
-  <section id="about" class="info-section">
-    <div class="info-container">
-      <h2 >About</h2>
-      <p>
-        TribeTies is dedicated to promoting connection between W&M students
-        on and off campus. We hope to reach this goal by pairing groups of 
-        students together that have similar interests every month. 
-      </p>
-      <br>
-      <p>
-        How does this work? All you need to do is to fill out the form below 
-        in the "Get Started" section. Your information will then be fed into
-        a machine learning model, which will group students together based
-        on similar feedback from the form. You will then receive pairings a
-        few days after the start of every month!
-      </p>
-    </div>
-  </section>
-<!-- New Steps Section -->
-<section id="steps" class="steps-section">
-  <div class="steps-container">
-    <h2>Get Started in 2 Simple Steps</h2>
-    <div class="step">
-      <h3>Step 1:</h3>
-      <p>Fill out this form: <a href="https://forms.gle/X2B5an41bMi8Dz24A" target="_blank">https://forms.gle/X2B5an41bMi8Dz24A</a></p>
-    </div>
-    <div class="step">
-      <h3>Step 2:</h3>
-      <p>Wait for the start of the month to receive pairings in your email</p>
-    </div>
-    <div class="step">
-      <h3>Step 3:</h3>
-      <p>Meet with your groups!</p>
-    </div>
-    <br>
-    <div class="countdown">
-      <h3>Days until groups are released:</h3>
-      <p id="countdown"></p>
-    </div>
-  </div>
-</section>
+    <!-- Left Sidebar -->
+    <nav class="sidebar">
 
-<script src="countdown.js"></script>
+        <ul class="nav-links">
+            <li><a href="#research">Research</a></li>
+            <li><a href="#art">Art</a></li>
+            <li><a href="#about">About Me</a></li>
+        </ul>
+    </nav>
 
-  <!-- Contact Section -->
-  <section id="contact" class="contact">
-    <div class="contact-container">
-      <h2>Contact Us</h2>
-      <p>If you have any questions, feel free to reach out to us:</p>
-      <form action="#" method="post">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required />
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required />
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="4" required></textarea>
-        </div>
-        <button type="submit">Send Message</button>
-      </form>
-    </div>
-  </section>
-  <script src="script.js"></script>
+    <!-- Right Content Area -->
+    <main class="content">
+        <section id="space">
+            asdasd asd 
+        </section>
+        <section id="research" class="section">
+            <div class="section-content">
+                <h2>Research</h2>
+                <p>Your research content goes here. Add details about your research projects, publications, and academic work.</p>
+            </div>
+        </section>
+
+        <section id="art" class="section">
+            <div class="section-content">
+                <h2>Art</h2>
+                <p>Your art portfolio content goes here. Showcase your creative work and artistic projects.</p>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="section-content">
+                <h2>About Me</h2>
+                <p>Tell your story here. Share your background, interests, and what drives your work.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
