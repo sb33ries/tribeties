@@ -1,71 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shinjer Li Portfolio - Radiology Report</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="top"></div>
-    <!-- Left Sidebar -->
-    <nav class="sidebar">
 
-        <!-- NAME BLOCK (only visible when expanded) -->
-        <div class="sidebar-name">
-            <div class="first-name">Shinjer</div>
-            <div class="last-name">Li</div>
+<div class="container">
+
+    <!-- LEFT: Report -->
+    <div class="report">
+        <h1>Shinjer Li</h1>
+        <hr>
+        <section>
+            <h2>INDICATION</h2>
+            <p>Evaluation of applicant background, technical skillset, clinical exposure, and long-term professional trajectory with concern for equity-driven innovation.</p>
+        </section>
+
+        <section>
+            <h2>TECHNIQUE</h2>
+            <p>Multiyear longitudinal acquisition including clinical scribing, research in data science, NMR/MRI simulation, community volunteering, and educational mentorship.</p>
+        </section>
+
+        <section>
+            <h2>FINDINGS</h2>
+            <ul>
+                <li><strong>Brain / Cognition:</strong> Data science experience, imaging simulations, analytical thinking.</li>
+                <li><strong>Cardiopulmonary:</strong> Endurance (swimming nationals), long-term commitment, team-based environments.</li>
+                <li><strong>Abdomen / Social Determinants:</strong> Free clinic scribing, volunteering with elderly populations, equity-focused initiatives.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>IMPRESSION</h2>
+            <ul>
+                <li>Strong candidate with rare integration of imaging, computation, and patient-centered clinical experience.</li>
+                <li>Demonstrated longitudinal commitment to healthcare equity.</li>
+                <li>Well-positioned for future contributions in radiology, informatics, or translational imaging research.</li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- RIGHT: Imaging Viewer -->
+    <div class="viewer">
+        <div class="image-container">
+            <img id="sliceImage" src="slices/pat1reg-tp0_slice_0000.jpg" alt="MRI Slice">
+            <div class="overlay">
+                <p id="sliceLabel">Slice 1 / 254</p>
+                <p>Axial T1 - Subject: Shinjer Li</p>
+            </div>
         </div>
 
-        <ul class="nav-links">
-            <li class="home-link">
-                <a href="#top">Home</a>
-            </li>
-            <li><a href="#research">Research</a></li>
-            <li><a href="#art">Art</a></li>
-            <li><a href="#about">About Me</a></li>
-        </ul>
+        <div class="controls">
+            <button id="slower">-</button>
+            <span>Speed: <span id="speedDisplay">100ms</span></span>
+            <button id="faster">+</button>
+        </div>
+    </div>
 
-    </nav>
+</div>
 
-
-    <!-- Right Content Area -->
-     
-    <main class="content">
-        <section id="home" class="section home-section">
-            <div class="section-content">
-                <img 
-                src="beach1.jpg" 
-                alt="Visualization of research work"
-                class="section-image">
-            </div>
-        </section>
-
-        <section id="research" class="section">
-            <div class="section-content">                
-                <h2>Research</h2>
-                <p>Your research content goes here. Add details about your research projects, publications, and academic work.</p>
-            </div>
-        </section>
-
-        <section id="art" class="section">
-            <div class="section-content">
-                <h2>Art</h2>
-                <p>Your art portfolio content goes here. Showcase your creative work and artistic projects.</p>
-            </div>
-        </section>
-
-        <section id="about" class="section">
-            <div class="section-content">
-                <h2>About Me</h2>
-                <p>Tell your story here. Share your background, interests, and what drives your work.</p>
-            </div>
-        </section>
-    </main>
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
