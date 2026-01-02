@@ -1,47 +1,265 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CT Report – Shinjer Li</title>
-<link rel="stylesheet" href="loading-styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Records - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Closed Folder Loading Screen -->
+    <div id="folder-closed">
+        <div class="closed-folder" onclick="openFolder()" id="closedFolderElement">
+            <div class="folder-tab">
+                <!-- Tear on tab -->
+                <div class="tear tear-tab"></div>
+            </div>
+            <div class="folder-label">
+                <h1>PATIENT RECORDS</h1>
+                <p>CONFIDENTIAL</p>
+            </div>
+            <button class="open-btn" onclick="openFolder()">OPEN FILE</button>
+            
+            <!-- Texture elements on closed folder -->
+            <div class="scratch scratch-1"></div>
+            <div class="scratch scratch-2"></div>
+            <div class="coffee-stain"></div>
+            <div class="corner-wear corner-wear-1"></div>
+            <div class="corner-wear corner-wear-2"></div>
+        </div>
+    </div>
 
-<div class="container" id="container">
-  <div class="scan-line"></div>
-  
-  <div class="header">
-    <h1>RADIOLOGICAL REPORT</h1>
-    <div class="subtitle">Digital Portfolio Archive</div>
-  </div>
+    <!-- Main Portfolio Content -->
+    <div id="portfolio-container">
+        <!-- Close File Button - Try different options by uncommenting -->
+        
+        <!-- OPTION 1: Paper Clip Style -->
+        <!-- <button class="close-btn close-btn-clip" onclick="closeFolder()">
+            <span class="clip-icon">📎</span> CLOSE FILE
+        </button> -->
+        
+        <!-- OPTION 2: Stamp Style (UNCOMMENT TO USE) -->
+        <!-- <button class="close-btn close-btn-stamp" onclick="closeFolder()">
+            CLOSE FILE
+        </button> -->
+        
+        <!-- OPTION 3: Tab Style (UNCOMMENT TO USE) -->
+        <!-- <button class="close-btn close-btn-tab" onclick="closeFolder()">
+            ← CLOSE
+        </button> -->
+        
+        <!-- OPTION 4: Minimal Text (UNCOMMENT TO USE) -->
+        <button class="close-btn close-btn-minimal" onclick="closeFolder()">
+            ✕ Close
+        </button>
 
-  <div class="report-info">
-    <div><span class="label">Patient Name:</span> <span class="value">Shinjer Li</span></div>
-    <div><span class="label">Exam Type:</span> <span class="value">Personal Portfolio</span></div>
-    <div><span class="label">Study Date:</span> <span class="value" id="current-date"></span></div>
-    <!-- <div><span class="label">Modality:</span> <span class="value">Digital Archive</span></div> -->
-  </div>
+        <div class="tab-container">
+            <button class="tab active" onclick="switchTab('welcome', this)">
+                Welcome
+                <div class="tab-tear"></div>
+            </button>
+            <button class="tab" onclick="switchTab('research', this)">
+                Research
+                <div class="tab-tear"></div>
+            </button>
+            <button class="tab" onclick="switchTab('ct-scan', this)">
+                CT Scan
+                <div class="tab-tear"></div>
+            </button>
+            <button class="tab" onclick="switchTab('about', this)">
+                About Me
+                <div class="tab-tear"></div>
+            </button>
+        </div>
 
-  <div class="divider"></div>
+        <div class="content-area">
+            <div class="paper-holes">
+                <div class="hole"></div>
+                <div class="hole"></div>
+                <div class="hole"></div>
+            </div>
 
-  <!-- <div class="findings">
-    <h2>Clinical Indication</h2>
-    <p>Comprehensive portfolio documentation presented in standardized radiological report format for systematic review and analysis of professional work.</p>
-  </div> -->
+            <!-- Paper texture elements -->
+            <div class="paper-stain paper-stain-1"></div>
+            <div class="paper-stain paper-stain-2"></div>
+            <div class="fold-mark"></div>
 
-  <div class="disclaimer">
-    <p><strong>Note:</strong> All images and data utilized in this portfolio are sourced from the public domain. Complete citations and attributions are provided at the bottom of the report for reference and verification.</p>
-  </div>
+            <!-- Welcome Page -->
+            <div class="page-content active" id="welcome">
+                <div class="stamp">CONFIDENTIAL</div>
+                <h2>PATIENT RECORDS - WELCOME</h2>
+                <div class="field">
+                    <span class="field-label">FILE NO:</span> #2025-001
+                </div>
+                <div class="field">
+                    <span class="field-label">DATE OPENED:</span> January 2, 2026
+                </div>
+                <div class="field">
+                    <span class="field-label">STATUS:</span> Active Review
+                </div>
+                <br>
+                <p>Welcome to my professional portfolio. This collection represents a comprehensive overview of my work, research, and capabilities.</p>
+                <p>Please navigate through the tabs above to explore different sections of this file. Each section contains detailed documentation of my professional journey and expertise.</p>
+                <p><strong>CONTENTS OVERVIEW:</strong></p>
+                <ul>
+                    <li><strong>Research:</strong> Detailed findings and project documentation</li>
+                    <li><strong>CT Scan:</strong> Deep analysis and technical capabilities</li>
+                    <li><strong>About Me:</strong> Background information and qualifications</li>
+                </ul>
+            </div>
 
-  <div class="status">
-    <div class="typing-text" id="typing-text"></div>
-    <button class="enter-prompt" id="enter-btn" style="display: none;">Click Here to Continue</button>
-  </div>
-</div>
+            <!-- Research Page -->
+            <div class="page-content" id="research">
+                <div class="stamp">REVIEWED</div>
+                <h2>RESEARCH FINDINGS</h2>
+                <div class="field">
+                    <span class="field-label">SECTION:</span> Project Documentation
+                </div>
+                <br>
+                <p><strong>PROJECT ALPHA:</strong></p>
+                <p>Research conducted on advanced methodologies and implementation strategies. Key findings include breakthrough developments in core competencies and innovative approaches to problem-solving.</p>
+                <br>
+                <p><strong>PROJECT BETA:</strong></p>
+                <p>Collaborative research initiative focusing on cutting-edge technologies and their practical applications. Results demonstrate significant advancement in field expertise.</p>
+                <br>
+                <p><strong>ONGOING INVESTIGATIONS:</strong></p>
+                <ul>
+                    <li>Advanced technical research and development</li>
+                    <li>Cross-functional collaboration studies</li>
+                    <li>Innovation in specialized domains</li>
+                </ul>
+            </div>
 
-<script src="loading-script.js"></script>
+            <!-- CT Scan Page -->
+            <div class="page-content" id="ct-scan">
+                <div class="stamp">ANALYZED</div>
+                
+                <div class="ct-report-header">
+                    <div class="patient-name-ct">[Your Name]</div>
+                    <div><strong>SEX:</strong> [M/F]</div>
+                    <div><strong>EMAIL:</strong> your@email.com</div>
+                    <div><strong>PHONE:</strong> (555) 555-5555</div>
+                    <div><strong>REPORTED:</strong> <span class="report-date"></span></div>
+                    <div><strong>APT ID:</strong> CT-482917</div>
+                    <div><strong>METHOD:</strong> Cardiac CT</div>
+                </div>
 
+                <hr class="ct-divider">
+                <h2 class="ct-title">CT REPORT</h2>
+                <hr class="ct-divider">
+
+                <div class="ct-section">
+                    <h3>Indication (Introduction):</h3>
+                    <p>Comprehensive technical assessment requested. This portfolio presents a detailed analysis of skills, capabilities, and professional background.</p>
+                </div>
+
+                <div class="ct-section">
+                    <h3>Technique (Skills):</h3>
+                    <p>Multiyear longitudinal acquisition including technical development, research experience, project implementation, and community engagement. Images reviewed in axial plane.</p>
+                </div>
+
+                <div class="ct-section">
+                    <h3>Findings:</h3>
+                    
+                    <p class="finding-title-ct">COGNITION (Interests):</p>
+                    <p>Strong interest in problem-solving, system design, and computational thinking. Demonstrated proficiency in programming, data analysis, and technical innovation.</p>
+
+                    <p class="finding-title-ct">TECHNICAL (Skills):</p>
+                    <p>Core competencies include: Programming & Development, System Architecture & Design, Data Analysis & Visualization, Problem-Solving Methodologies, and Cross-Platform Integration.</p>
+
+                    <p class="finding-title-ct">CREATIVE (Hobbies):</p>
+                    <p>Balanced approach to work and personal development through various creative and physical activities that enhance discipline and coordination.</p>
+                </div>
+
+                <div class="ct-section">
+                    <h3>Impression (Summary):</h3>
+                    <p>Strong candidate demonstrating rare integration of technical expertise, analytical thinking, and creative problem-solving. Findings support readiness for advanced challenges and future contributions to the field.</p>
+                </div>
+
+                <!-- Button to open CT Viewer -->
+                <button class="open-viewer-btn" onclick="toggleCTViewer()">
+                    <span class="viewer-icon">📊</span> VIEW CT SCANS
+                </button>
+            </div>
+
+            
+
+            <!-- About Me Page -->
+            <div class="page-content" id="about">
+                <div class="stamp">VERIFIED</div>
+                <h2>ABOUT ME - PERSONAL HISTORY</h2>
+                <div class="field">
+                    <span class="field-label">SUBJECT NAME:</span> [Your Name]
+                </div>
+                <div class="field">
+                    <span class="field-label">PROFESSIONAL TITLE:</span> [Your Title]
+                </div>
+                <div class="field">
+                    <span class="field-label">LOCATION:</span> [Your Location]
+                </div>
+                <br>
+                <p><strong>BACKGROUND:</strong></p>
+                <p>Passionate professional with extensive experience in technology and innovation. Dedicated to continuous learning and pushing the boundaries of what's possible.</p>
+                <br>
+                <p><strong>EDUCATION & QUALIFICATIONS:</strong></p>
+                <ul>
+                    <li>[Your Degree/Certification]</li>
+                    <li>[Additional Qualifications]</li>
+                    <li>[Relevant Courses or Training]</li>
+                </ul>
+                <br>
+                <p><strong>CONTACT INFORMATION:</strong></p>
+                <div class="field">
+                    <span class="field-label">EMAIL:</span> [your.email@example.com]
+                </div>
+                <div class="field">
+                    <span class="field-label">LINKEDIN:</span> [Your LinkedIn]
+                </div>
+                <div class="field">
+                    <span class="field-label">GITHUB:</span> [Your GitHub]
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Slide-out CT Viewer Panel -->
+    <div class="ct-viewer-panel" id="ctViewerPanel">
+        <button class="close-viewer-btn" onclick="toggleCTViewer()">✕</button>
+        
+        <div class="ct-viewer-inner">
+            <h3 class="viewer-title">CT IMAGING VIEWER</h3>
+            <p class="viewer-instructions">(hover to pause · scroll to navigate)</p>
+            
+            <div class="ct-image-container">
+                <div class="ct-overlay">
+                    <p class="ct-slice-label">SLICE <span id="sliceLabel">1 / 254</span></p>
+                    <p class="ct-scan-type">AXIAL · CARDIAC CT</p>
+                </div>
+                <img id="sliceImage" src="slices/pat1reg-tp0_slice_0253.jpg" alt="CT Slice">
+            </div>
+
+            <div class="ct-controls">
+                <!-- TOP ROW -->
+                <div class="ct-controls-row">
+                    <div class="ct-control-group">
+                        <span class="ct-control-label">Speed</span>
+                        <div class="ct-control-input">
+                            <button class="ct-btn" id="slower">−</button>
+                            <span id="speedFactor">×1.00</span>
+                            <button class="ct-btn" id="faster">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BOTTOM ROW -->
+                <div class="ct-controls-row">
+                    <div class="ct-control-group ct-control-full">
+                        <span class="ct-control-label">Contrast</span>
+                        <input type="range" id="contrastSlider" min="50" max="200" value="100">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

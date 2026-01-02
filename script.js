@@ -1,30 +1,169 @@
-const totalSlices = 254;
-let currentSlice = 0; // Start at 0 (displays as "1/254", uses file 0253)
+// Mouse tracking for folder tilt effect
+let mouseX = 0;
+let mouseY = 0;
 
+document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    updateFolderTilt();
+});
+
+function updateFolderTilt() {
+    const closedFolder = document.getElementById('closedFolderElement');
+    const portfolio = document.getElementById('portfolio-container');
+    
+    // Calculate tilt based on mouse position
+    const centerX = window.innerWidth / 2;
+    const centerY = window.innerHeight / 2;
+    
+    const percentX = (mouseX - centerX) / centerX;
+    const percentY = (mouseY - centerY) / centerY;
+    
+    const maxTilt = 15; // Maximum tilt in degrees
+    const tiltX = -percentY * maxTilt;
+    const tiltY = percentX * maxTilt;
+    
+    // Apply tilt to closed folder if visible
+    if (closedFolder && !document.getElementById('folder-closed').classList.contains('hidden')) {
+        closedFolder.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+    }
+    
+    // Apply tilt to open portfolio if visible
+    if (portfolio && portfolio.classList.contains('active')) {
+        const subtleTiltX = -percentY * 5;
+        const subtleTiltY = percentX * 5;
+        portfolio.style.transform = `perspective(1000px) rotateX(${subtleTiltX}deg) rotateY(${subtleTiltY}deg)`;
+    }
+
+    // Apply tilt to CT viewer if open
+    // if (ctViewer && ctViewer.classList.contains('open')) {
+    //     const viewerTiltX = -percentY * 8;
+    //     const viewerTiltY = percentX * 8;
+    //     ctViewer.style.transform = `translateY(-50%) perspective(1000px) rotateX(${viewerTiltX}deg) rotateY(${viewerTiltY}deg)`;
+    // }
+}
+
+function openFolder() {
+    document.getElementById('folder-closed').classList.add('hidden');
+    setTimeout(() => {
+        document.getElementById('portfolio-container').classList.add('active');
+        updateFolderTilt();
+    }, 500);
+}
+
+function closeFolder() {
+    const portfolio = document.getElementById('portfolio-container');
+    const folderClosed = document.getElementById('folder-closed');
+    
+    // Add closing animation class
+    portfolio.classList.add('closing');
+    
+    // After animation completes, show closed folder
+    setTimeout(() => {
+        portfolio.classList.remove('active');
+        portfolio.classList.remove('closing');
+        folderClosed.classList.remove('hidden');
+        
+        // Reset to first tab
+        const tabs = document.querySelectorAll('.tab');
+        const pages = document.querySelectorAll('.page-content');
+
+        tabs.forEach(tab => tab.classList.remove('active'));
+        pages.forEach(page => page.classList.remove('active'));
+
+        tabs[0].classList.add('active');
+        document.getElementById('welcome').classList.add('active');
+
+        
+        updateFolderTilt();
+    }, 800);
+}
+
+function switchTab(tabName, element) {
+    // Update tab buttons
+    const tabs = document.querySelectorAll('.tab');
+    tabs.forEach(tab => tab.classList.remove('active'));
+
+    if (element) {
+        element.classList.add('active');
+    }
+
+    // Update page content
+    const pages = document.querySelectorAll('.page-content');
+    pages.forEach(page => page.classList.remove('active'));
+
+    const target = document.getElementById(tabName);
+    if (target) {
+        target.classList.add('active');
+    }
+    
+    // Auto-open CT viewer when CT Scan tab is clicked
+    if (tabName === 'ct-scan') {
+        const panel = document.getElementById('ctViewerPanel');
+        if (!panel.classList.contains('open')) {
+            toggleCTViewer();
+        }
+    } else {
+        // Close CT viewer when switching away from CT Scan tab
+        const panel = document.getElementById('ctViewerPanel');
+        if (panel && panel.classList.contains('open')) {
+            toggleCTViewer();
+        }
+    }
+}
+// Initialize tilt on page load
+window.addEventListener('load', updateFolderTilt);
+
+// Toggle CT Viewer Panel
+function toggleCTViewer() {
+    const panel = document.getElementById('ctViewerPanel');
+    panel.classList.toggle('open');
+    
+    // Initialize viewer when opened for the first time
+    if (panel.classList.contains('open') && !window.ctViewerInitialized) {
+        initCTViewer();
+        window.ctViewerInitialized = true;
+    }
+}
+
+// CT Scan Viewer Functionality
+const totalSlices = 254;
+let currentSlice = 0;
 let baseInterval = 120;
 let speedFactor = 1.0;
 let playing = true;
 
-const img = document.getElementById("sliceImage");
-const sliceLabel = document.getElementById("sliceLabel");
+const sliceImg = document.getElementById("sliceImage");
+const sliceLabelEl = document.getElementById("sliceLabel");
 const speedDisplay = document.getElementById("speedFactor");
 const contrastSlider = document.getElementById("contrastSlider");
-const imageContainer = document.querySelector('.image-container');
+const imageContainer = document.querySelector('.ct-image-container');
 
-let loopInterval = setInterval(nextSlice, baseInterval / speedFactor);
+let loopInterval;
+
+function initCTViewer() {
+    if (!sliceImg) return; // Exit if CT viewer elements don't exist yet
+    
+    loopInterval = setInterval(nextSlice, baseInterval / speedFactor);
+    
+    // Set current date in report
+    const reportDateEls = document.querySelectorAll('.report-date');
+    reportDateEls.forEach(el => {
+        el.textContent = new Date().toLocaleDateString();
+    });
+}
 
 function nextSlice() {
     if (!playing) return;
-    currentSlice = (currentSlice + 1) % totalSlices; // Increment forward visually
+    currentSlice = (currentSlice + 1) % totalSlices;
     updateSlice();
 }
 
 function updateSlice() {
-    // Invert the file number: slice 0 uses file 253, slice 1 uses file 252, etc.
     const fileNumber = totalSlices - 1 - currentSlice;
     const num = String(fileNumber).padStart(4, "0");
-    img.src = `slices/pat1reg-tp0_slice_${num}.jpg`;
-    sliceLabel.textContent = `${currentSlice + 1} / ${totalSlices}`;
+    sliceImg.src = `slices/pat1reg-tp0_slice_${num}.jpg`;
+    sliceLabelEl.textContent = `${currentSlice + 1} / ${totalSlices}`;
 }
 
 function resetInterval() {
@@ -32,203 +171,38 @@ function resetInterval() {
     loopInterval = setInterval(nextSlice, baseInterval / speedFactor);
 }
 
-document.getElementById("faster").onclick = () => {
-    speedFactor = Math.min(speedFactor + 0.5, 3);
-    speedDisplay.textContent = `×${speedFactor.toFixed(2)}`;
-    resetInterval();
-};
-
-document.getElementById("slower").onclick = () => {
-    speedFactor = Math.max(speedFactor - 5, 0.5);
-    speedDisplay.textContent = `×${speedFactor.toFixed(2)}`;
-    resetInterval();
-};
-
-img.addEventListener("mouseenter", () => playing = false);
-img.addEventListener("mouseleave", () => playing = true);
-
-img.addEventListener("wheel", e => {
-    e.preventDefault();
-
-    const direction = Math.sign(e.deltaY); // up = -1, down = +1
-    currentSlice += direction;             // Scroll down increases visual slice number
-
-    currentSlice = Math.max(0, Math.min(totalSlices - 1, currentSlice));
-    updateSlice();
-});
-
-contrastSlider.addEventListener("input", () => {
-    imageContainer.style.filter = `contrast(${contrastSlider.value}%)`;
-});
-
-// Auto date
-document.getElementById("reportDate").textContent =
-    new Date().toLocaleDateString();
-
-const text = "REPORT";
-const typingSpeed = 200;  // milliseconds per character
-const erasingSpeed = 150; // milliseconds per character
-const pauseBetween = 1500; // pause before erasing or retyping
-let index = 0;
-let typing = true; // true = typing, false = erasing
-const el = document.getElementById("typing-report");
-
-function typeEffect() {
-    if (typing) {
-        // add one character
-        el.textContent += text.charAt(index);
-        index++;
-        if (index === text.length) {
-            typing = false;
-            setTimeout(typeEffect, pauseBetween);
-        } else {
-            setTimeout(typeEffect, typingSpeed);
-        }
-    } else {
-        // erase one character
-        el.textContent = text.substring(0, index - 1);
-        index--;
-        if (index === 0) {
-            typing = true;
-            setTimeout(typeEffect, pauseBetween);
-        } else {
-            setTimeout(typeEffect, erasingSpeed);
-        }
-    }
+// Event listeners for CT viewer (only if elements exist)
+if (document.getElementById("faster")) {
+    document.getElementById("faster").onclick = () => {
+        speedFactor = Math.min(speedFactor + 0.5, 3);
+        speedDisplay.textContent = `×${speedFactor.toFixed(2)}`;
+        resetInterval();
+    };
 }
 
-// start typing
-typeEffect();
-
-// ===== RESEARCH SECTION SCROLL REVEAL =====
-const researchSection = document.querySelector('.research-section');
-
-const observerOptions = {
-    threshold: 0.2
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
-    });
-}, observerOptions);
-
-if (researchSection) {
-    observer.observe(researchSection);
+if (document.getElementById("slower")) {
+    document.getElementById("slower").onclick = () => {
+        speedFactor = Math.max(speedFactor - 0.5, 0.5);
+        speedDisplay.textContent = `×${speedFactor.toFixed(2)}`;
+        resetInterval();
+    };
 }
 
-// ===== RESEARCH ITEM INTERACTION =====
-const researchItems = document.querySelectorAll('.research-item');
-const detailContent = document.getElementById('detailContent');
-const detailPlaceholder = document.querySelector('.detail-placeholder');
+if (sliceImg) {
+    sliceImg.addEventListener("mouseenter", () => playing = false);
+    sliceImg.addEventListener("mouseleave", () => playing = true);
 
-// Sample research data (replace with your actual data)
-const researchData = {
-    ongoing1: {
-        title: "Neural Network Models for Medical Imaging",
-        status: "Ongoing",
-        date: "2024 - Present",
-        description: "Developing deep learning architectures for automated analysis of cardiac CT scans. This work focuses on leveraging convolutional neural networks to identify structural abnormalities and predict clinical outcomes with high accuracy.",
-        authors: "S. Li, et al.",
-        image: "path/to/your-image.jpg", // Add image path
-        links: [
-            { text: "View Paper", url: "https://example.com/paper.pdf" },
-            { text: "GitHub Repository", url: "https://github.com/yourusername/project" }
-        ]
-    },
-    ongoing2: {
-        title: "Cardiac Imaging Analysis Pipeline",
-        status: "Ongoing",
-        date: "2024 - Present",
-        description: "Building an end-to-end computational pipeline for processing and analyzing large-scale cardiac imaging datasets. Integration of image segmentation, feature extraction, and statistical modeling.",
-        authors: "S. Li, Co-investigators TBD"
-    },
-    pub1: {
-        title: "Machine Learning Applications in Radiology",
-        status: "Published",
-        date: "Journal Name, 2024",
-        description: "Systematic review examining the current state of machine learning implementation in radiological practice. Analyzes over 200 studies to identify key trends, challenges, and future directions in AI-assisted diagnosis.",
-        authors: "S. Li, A. Smith, B. Johnson"
-    },
-    pub2: {
-        title: "Healthcare Data Systems and Interoperability",
-        status: "Published",
-        date: "Medical Informatics, 2023",
-        description: "Investigation of data integration challenges in modern healthcare systems. Proposes novel frameworks for improving interoperability between electronic health records and imaging databases.",
-        authors: "S. Li, C. Williams"
-    },
-    conf1: {
-        title: "RSNA 2024: AI in Cardiac Imaging",
-        status: "Conference",
-        date: "December 2024",
-        description: "Poster presentation demonstrating novel applications of artificial intelligence in cardiac CT interpretation. Showcased preliminary results from ongoing research on automated coronary artery calcium scoring.",
-        authors: "S. Li"
-    }
-};
-
-researchItems.forEach(item => {
-    item.addEventListener('click', () => {
-        // Remove active class from all items
-        researchItems.forEach(i => i.classList.remove('active'));
-        
-        // Add active class to clicked item
-        item.classList.add('active');
-        
-        // Get data and update detail view
-        const dataId = item.getAttribute('data-id');
-        const data = researchData[dataId];
-        
-        if (data) {
-            // Hide placeholder
-            detailPlaceholder.classList.add('hidden');
-            
-            // Fade out current content
-            detailContent.classList.remove('visible');
-            
-            // Update content after fade out
-            setTimeout(() => {
-                let mediaHTML = '';
-                
-                // Add image if exists
-                if (data.image) {
-                    mediaHTML += `<img src="${data.image}" alt="${data.title}" class="detail-image">`;
-                }
-                
-                // Add video if exists
-                if (data.video) {
-                    mediaHTML += `
-                        <div class="detail-video">
-                            <iframe src="${data.video}" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                    `;
-                }
-                
-                // Add links if exist
-                let linksHTML = '';
-                if (data.links && data.links.length > 0) {
-                    linksHTML = '<div class="detail-links">';
-                    data.links.forEach(link => {
-                        linksHTML += `<a href="${link.url}" target="_blank" rel="noopener noreferrer">${link.text}</a>`;
-                    });
-                    linksHTML += '</div>';
-                }
-                
-                detailContent.innerHTML = `
-                    <h2>${data.title}</h2>
-                    <div class="meta">
-                        <span><strong>Status:</strong> ${data.status}</span>
-                        <span><strong>Date:</strong> ${data.date}</span>
-                    </div>
-                    ${mediaHTML}
-                    <div class="description">${data.description}</div>
-                    <div class="authors">${data.authors}</div>
-                    ${linksHTML}
-                `;
-                
-                detailContent.classList.add('visible');
-            }, 200);
-        }
+    sliceImg.addEventListener("wheel", e => {
+        e.preventDefault();
+        const direction = Math.sign(e.deltaY);
+        currentSlice += direction;
+        currentSlice = Math.max(0, Math.min(totalSlices - 1, currentSlice));
+        updateSlice();
     });
-});
+}
+
+if (contrastSlider && imageContainer) {
+    contrastSlider.addEventListener("input", () => {
+        imageContainer.style.filter = `contrast(${contrastSlider.value}%)`;
+    });
+}
