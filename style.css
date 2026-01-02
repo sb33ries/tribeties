@@ -312,3 +312,228 @@ input[type="range"]::-moz-range-thumb:hover {
         flex-direction: column;
     }
 }
+
+/* ===== RESEARCH SECTION ===== */
+.research-section {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1d35 100%);
+    padding: 5rem 2rem;
+    box-sizing: border-box;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.research-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.research-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 4rem;
+    min-height: 70vh;
+}
+
+/* LEFT: Research List */
+.research-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.research-category h3 {
+    color: #64b5f6;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    padding-left: 0.5rem;
+}
+
+.research-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-left: 2px solid transparent;
+    position: relative;
+}
+
+.research-item:hover {
+    border-left-color: #42a5f5;
+    padding-left: 1rem;
+}
+
+.research-item.active {
+    border-left-color: #1e88e5;
+    background: rgba(30, 136, 229, 0.1);
+    padding-left: 1rem;
+}
+
+.item-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #546e7a;
+    transition: all 0.3s ease;
+}
+
+.research-item:hover .item-dot,
+.research-item.active .item-dot {
+    background: #42a5f5;
+    box-shadow: 0 0 10px rgba(66, 165, 245, 0.6);
+}
+
+.item-name {
+    color: #b0bec5;
+    font-size: 0.95rem;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.research-item:hover .item-name,
+.research-item.active .item-name {
+    color: #e0e0e0;
+}
+
+/* RIGHT: Research Detail */
+.research-detail {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    padding: 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    min-height: 600px;
+}
+
+.detail-placeholder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #546e7a;
+    font-size: 0.9rem;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.detail-placeholder.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.detail-content {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.detail-content.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.detail-content h2 {
+    color: #e0e0e0;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.detail-content .meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    font-size: 0.85rem;
+    color: #78909c;
+}
+
+.detail-content .meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.detail-content .description {
+    color: #b0bec5;
+    line-height: 1.7;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.detail-content .authors {
+    color: #90a4ae;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+/* Detail media styling */
+.detail-image {
+    width: 50%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin: 1.5rem 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.detail-video {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    margin: 1.5rem 0;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #000;
+}
+
+.detail-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Links styling */
+.detail-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.detail-links a {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.6rem 1.2rem;
+    background: rgba(66, 165, 245, 0.1);
+    border: 1px solid #42a5f5;
+    color: #42a5f5;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.detail-links a:hover {
+    background: #42a5f5;
+    color: #0a0e27;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(66, 165, 245, 0.3);
+}
+
+.detail-links a:active {
+    transform: translateY(0);
+}
