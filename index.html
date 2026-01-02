@@ -1,67 +1,47 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shinjer Li Portfolio - Radiology Report</title>
-<link rel="stylesheet" href="style.css">
+<title>CT Report – Shinjer Li</title>
+<link rel="stylesheet" href="loading-styles.css">
 </head>
 <body>
 
-<div class="container">
+<div class="container" id="container">
+  <div class="scan-line"></div>
+  
+  <div class="header">
+    <h1>RADIOLOGICAL REPORT</h1>
+    <div class="subtitle">Digital Portfolio Archive</div>
+  </div>
 
-    <!-- LEFT: Report -->
-    <div class="report">
-        <h1>Shinjer Li</h1>
-        <hr>
-        <section>
-            <h2>INDICATION</h2>
-            <p>Evaluation of applicant background, technical skillset, clinical exposure, and long-term professional trajectory with concern for equity-driven innovation.</p>
-        </section>
+  <div class="report-info">
+    <div><span class="label">Patient Name:</span> <span class="value">Shinjer Li</span></div>
+    <div><span class="label">Exam Type:</span> <span class="value">Personal Portfolio</span></div>
+    <div><span class="label">Study Date:</span> <span class="value" id="current-date"></span></div>
+    <!-- <div><span class="label">Modality:</span> <span class="value">Digital Archive</span></div> -->
+  </div>
 
-        <section>
-            <h2>TECHNIQUE</h2>
-            <p>Multiyear longitudinal acquisition including clinical scribing, research in data science, NMR/MRI simulation, community volunteering, and educational mentorship.</p>
-        </section>
+  <div class="divider"></div>
 
-        <section>
-            <h2>FINDINGS</h2>
-            <ul>
-                <li><strong>Brain / Cognition:</strong> Data science experience, imaging simulations, analytical thinking.</li>
-                <li><strong>Cardiopulmonary:</strong> Endurance (swimming nationals), long-term commitment, team-based environments.</li>
-                <li><strong>Abdomen / Social Determinants:</strong> Free clinic scribing, volunteering with elderly populations, equity-focused initiatives.</li>
-            </ul>
-        </section>
+  <!-- <div class="findings">
+    <h2>Clinical Indication</h2>
+    <p>Comprehensive portfolio documentation presented in standardized radiological report format for systematic review and analysis of professional work.</p>
+  </div> -->
 
-        <section>
-            <h2>IMPRESSION</h2>
-            <ul>
-                <li>Strong candidate with rare integration of imaging, computation, and patient-centered clinical experience.</li>
-                <li>Demonstrated longitudinal commitment to healthcare equity.</li>
-                <li>Well-positioned for future contributions in radiology, informatics, or translational imaging research.</li>
-            </ul>
-        </section>
-    </div>
+  <div class="disclaimer">
+    <p><strong>Note:</strong> All images and data utilized in this portfolio are sourced from the public domain. Complete citations and attributions are provided at the bottom of the report for reference and verification.</p>
+  </div>
 
-    <!-- RIGHT: Imaging Viewer -->
-    <div class="viewer">
-        <div class="image-container">
-            <img id="sliceImage" src="slices/pat1reg-tp0_slice_0000.jpg" alt="MRI Slice">
-            <div class="overlay">
-                <p id="sliceLabel">Slice 1 / 254</p>
-                <p>Axial T1 - Subject: Shinjer Li</p>
-            </div>
-        </div>
-
-        <div class="controls">
-            <button id="slower">-</button>
-            <span>Speed: <span id="speedDisplay">100ms</span></span>
-            <button id="faster">+</button>
-        </div>
-    </div>
-
+  <div class="status">
+    <div class="typing-text" id="typing-text"></div>
+    <button class="enter-prompt" id="enter-btn" style="display: none;">Click Here to Continue</button>
+  </div>
 </div>
 
-<script src="script.js"></script>
+<script src="loading-script.js"></script>
+
 </body>
 </html>

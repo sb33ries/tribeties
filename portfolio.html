@@ -1,0 +1,121 @@
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CT Report – Shinjer Li</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- LEFT: REPORT -->
+    <div class="report">
+
+        <!-- Header -->
+        <div class="report-header">
+            
+            <div class="patient-name">Shinjer  Li (pronounciation) (photo)</div>
+            <div><strong>SEX:</strong> M</div>
+            <div><strong>EMAIL:</strong> your@email.com</div>
+            <div><strong>PHONE:</strong> (555) 555-5555</div>
+            <div><strong>REPORTED:</strong> <span id="reportDate"></span></div>
+            <div><strong>APT ID:</strong> CT-482917</div>
+            <div><strong>METHOD:</strong> Abdominal CT</div>
+        </div>
+
+
+        <hr class="title-divider">
+        <h1 class="report-title">
+            CT <span id="typing-report"></span>
+        </h1>
+        <hr class="title-divider">
+
+
+        <section>
+            <h2>Indication (Introduction):</h2>
+            <p>
+                My name is Shinjer (it rhymes with ginger). I'm a 1st year medical student at Eastern Virginia Medical School (EVMS). Welcome to my portfolio!</p>
+        </section>
+
+        <section>
+            <h2>Technique (Skills):</h2>
+            <p class="hover-reveal">
+                <span class="blur-on-idle">Multiyear longitudinal acquisition including clinical scribing, data science research,
+                imaging simulation, and community engagement. Images reviewed in axial plane.</span>
+            </p>
+        </section>
+
+    <section>
+        <h2>Findings:</h2>
+
+        <p class="finding-title">BRAIN / COGNITION (Interests):</p>
+        <p class="hover-reveal">
+            <span class="blur-on-idle">A long-standing interest in understanding the brain and human cognition has guided my academic focus toward </span>
+            medicine, imaging, data science, computational modeling, research, and machine learning
+            <span class="blur-on-idle"> as tools to study complex biological systems, analyze large-scale data, and develop quantitative frameworks that connect theory with clinical application.</span>
+        </p>
+
+        <p class="finding-title">CARDIOPULMONARY (Hobbies):</p>
+        <p class="hover-reveal">
+            <span class="blur-on-idle">Outside of academics, physical activity plays a central role in maintaining balance and discipline through </span>
+            swimming, running, biking, tennis, and badminton
+            <span class="blur-on-idle">, which collectively emphasize endurance, coordination, and sustained commitment over time.</span>
+        </p>
+
+        <p class="finding-title">EXTREMITIES (CREATIVE HOBBIES):</p>
+        <p class="hover-reveal">
+            <span class="blur-on-idle">Creative expression is explored through </span>
+            piano performance
+            <span class="blur-on-idle"> and visual art, with recent focus on </span>
+            drawing
+            <span class="blur-on-idle"> as a way to develop fine motor control, attention to detail, and visual storytelling.</span>
+        </p>
+    </section>
+
+
+        <section>
+            <h2>Impression (Summary/Personal Statement):</h2>
+            <p>
+                Strong candidate demonstrating rare integration of clinical experience, imaging,
+                and computational skill. Findings support readiness for advanced medical training
+                with future contributions to radiology and healthcare equity.
+            </p>
+        </section>
+
+    </div>
+
+    <!-- RIGHT: IMAGING VIEWER -->
+    <div class="viewer">
+        <div class="viewer-inner">
+
+            <div class="image-container">
+                <div class="overlay">
+                    <p id="sliceLabel">Slice 1 / 254</p>
+                    <p>AXIAL · ABDOMINAL CT</p>
+                </div>
+                <img id="sliceImage" src="slices/pat1reg-tp0_slice_0000.jpg" alt="CT Slice">
+            </div>
+
+            <div class="controls">
+                <div>
+                    Speed: <button id="slower">−</button>
+                    <span id="speedFactor">×1.00</span>
+                    <button id="faster">+</button>
+                </div>
+
+                <div>
+                    Contrast
+                    <input type="range" id="contrastSlider" min="50" max="200" value="100">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

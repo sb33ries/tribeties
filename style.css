@@ -1,62 +1,113 @@
-/* === General === */
 body {
     margin: 0;
-    font-family: 'Courier New', Courier, monospace; /* monospaced terminal feel */
-    background: #1b1b1b; /* dark retro background */
-    color: #e0e0e0;
+    font-family: Arial;
+    background: #e6e6e6;
+    color: #000;
 }
 
-/* === Container === */
 .container {
     display: flex;
     flex-wrap: wrap;
     min-height: 100vh;
 }
 
-/* === Report Section === */
+.header-divider,
+.title-divider {
+    border: none;
+    border-top: 1px solid #000;
+    margin: 12px 0;
+}
+
+.report-title {
+    font-family: monospace;
+    font-size: 2rem;
+    white-space: nowrap;
+}
+
+#typing-report {
+    border-right: 2px solid black; /* cursor effect */
+    display: inline-block;
+}
+/* Initial blur style */
+.blur-on-idle {
+    filter: blur(5px);
+    transition: filter 0.3s ease;
+}
+
+/* When hovering the parent paragraph, all child spans reveal */
+.hover-reveal:hover .blur-on-idle {
+    filter: blur(0);
+}
+
+
+/* ================= REPORT ================= */
+
 .report {
-    flex: 1 1 400px;
+    flex: 1 1 500px;
+    background: #ffffff;
     padding: 30px;
-    background: #2b2b2b;
-    border-right: 2px solid #444;
     box-sizing: border-box;
 }
 
-.report h1 {
-    color: #00ffff; /* subtle cyan highlight for name */
-    margin-bottom: 10px;
+.report-header {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    font-size: 0.87rem;
+    gap: 4px 12px;
+    margin-bottom: 15px;
+}
+
+.report-title {
+    text-align: center;
+    margin: 20px 0;
+    letter-spacing: 2px;
 }
 
 .report h2 {
-    color: #a0ffa0; /* subtle green for headers */
-    margin-top: 25px;
+    margin-top: 20px;
+    font-size: 1.5rem;
+    /* text-transform: uppercase; */
 }
 
-.report hr {
-    border: 0;
-    height: 1px;
-    background: #444;
+.finding-title {
+    /* font-weight: bold; */
+    text-transform: uppercase;
+    text-decoration: underline;
+    margin-top: 15px;
 }
 
-/* === Viewer Section === */
+.patient-name {
+    grid-column: 1 / -1;   /* span entire width */
+    font-size: 2.2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+
+/* ================= VIEWER ================= */
+
 .viewer {
-    flex: 1 1 400px;
+    flex: 1 1 800px;
     background: #111;
-    color: #fff;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    align-items: center;          /* vertical centering */
+    justify-content: center;
     padding: 20px;
     box-sizing: border-box;
-    border-left: 2px solid #444;
+}
+
+.viewer-inner {
+    width: 100%;
+    max-width: 550px;
 }
 
 .image-container {
     position: relative;
-    width: 100%;
-    max-width: 500px;
-    border: 2px solid #333;
-    background: #000;
+    background: black;
+    border: 2px solid #444;
+    flex-direction: column;   /* stack overlay above image */
 }
 
 .image-container img {
@@ -65,56 +116,37 @@ body {
 }
 
 .overlay {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 0.9em;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 5px 10px;
-    border-radius: 5px;
-    color: #0ff; /* cyan overlay text */
+    position: static;
+    top: 8px;
+    left: 8px;
+    background: rgba(0,0,0,0.6);
+    color: #0ff;
+    padding: 6px 10px;
+    font-size: 0.85rem;
 }
 
-/* Controls */
 .controls {
     margin-top: 15px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     gap: 10px;
+    color: #ddd;
+    font-size: 0.85rem;
 }
 
 button {
     background: #222;
     color: #0ff;
     border: 1px solid #0ff;
-    padding: 5px 12px;
-    font-size: 1em;
     cursor: pointer;
-    border-radius: 3px;
-    transition: 0.2s;
+    padding: 2px 8px;
+    font-family: inherit;
 }
 
-button:hover {
-    background: #0ff;
-    color: #111;
-}
+/* ================= MOBILE ================= */
 
-/* === Mobile Responsiveness === */
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
-    }
-
-    .viewer, .report {
-        flex: 1 1 100%;
-        border: none;
-    }
-
-    .report {
-        padding: 20px;
-    }
-
-    .viewer {
-        margin-top: 20px;
     }
 }
