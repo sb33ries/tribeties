@@ -9,6 +9,7 @@ const img = document.getElementById("sliceImage");
 const sliceLabel = document.getElementById("sliceLabel");
 const speedDisplay = document.getElementById("speedFactor");
 const contrastSlider = document.getElementById("contrastSlider");
+const imageContainer = document.querySelector('.image-container');
 
 let loopInterval = setInterval(nextSlice, baseInterval / speedFactor);
 
@@ -23,7 +24,7 @@ function updateSlice() {
     const fileNumber = totalSlices - 1 - currentSlice;
     const num = String(fileNumber).padStart(4, "0");
     img.src = `slices/pat1reg-tp0_slice_${num}.jpg`;
-    sliceLabel.textContent = `Slice ${currentSlice + 1} / ${totalSlices}`;
+    sliceLabel.textContent = `${currentSlice + 1} / ${totalSlices}`;
 }
 
 function resetInterval() {
@@ -57,7 +58,7 @@ img.addEventListener("wheel", e => {
 });
 
 contrastSlider.addEventListener("input", () => {
-    img.style.filter = `contrast(${contrastSlider.value}%)`;
+    imageContainer.style.filter = `contrast(${contrastSlider.value}%)`;
 });
 
 // Auto date

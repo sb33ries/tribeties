@@ -22,7 +22,7 @@
             <div><strong>PHONE:</strong> (555) 555-5555</div>
             <div><strong>REPORTED:</strong> <span id="reportDate"></span></div>
             <div><strong>APT ID:</strong> CT-482917</div>
-            <div><strong>METHOD:</strong> Abdominal CT</div>
+            <div><strong>METHOD:</strong> Cardiac CT</div>
         </div>
 
 
@@ -36,7 +36,7 @@
         <section>
             <h2>Indication (Introduction):</h2>
             <p>
-                The patient's name is Shinjer (it rhymes with ginger). He is a 1st year medical student at Eastern Virginia Medical School (EVMS). This is his portfolio!</p>
+                The patient's name is Shinjer (it rhymes with ginger) Li. He is a 1st year medical student at Eastern Virginia Medical School (EVMS). This is his portfolio!</p>
         </section>
 
         <section>
@@ -92,24 +92,47 @@
 
             <div class="image-container">
                 <div class="overlay">
-                    <p id="sliceLabel">Slice 1 / 254</p>
-                    <p>AXIAL · ABDOMINAL CT</p>
+
+                    <p>AXIAL · CARDIAC CT</p>
                 </div>
                 <img id="sliceImage" src="slices/pat1reg-tp0_slice_0000.jpg" alt="CT Slice">
             </div>
 
             <div class="controls">
-                <div>
-                    Speed: <button id="slower">−</button>
-                    <span id="speedFactor">×1.00</span>
-                    <button id="faster">+</button>
+
+                <!-- TOP ROW -->
+                <div class="controls-top">
+                    <div class="controls-left">
+                        <div class="control-group">
+                            <span class="control-label">Speed</span>
+                            <div class="control-input">
+                                <button id="slower">−</button>
+                                <span id="speedFactor">×1.00</span>
+                                <button id="faster">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="controls-right">
+                        <div class="control-group slice-info">
+                            <span class="control-label">Slice</span>
+                            <span id="sliceLabel">1 / 254</span>
+                        </div>
+                    </div>
                 </div>
 
-                <div>
-                    Contrast
-                    <input type="range" id="contrastSlider" min="50" max="200" value="100">
+                <!-- BOTTOM ROW -->
+                <div class="controls-bottom">
+                    <div class="control-group">
+                        <span class="control-label">Contrast</span>
+                        <div class="control-input">
+                            <input type="range" id="contrastSlider" min="50" max="200" value="100">
+                        </div>
+                    </div>
                 </div>
+
             </div>
+
 
         </div>
     </div>
