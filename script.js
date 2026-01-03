@@ -207,4 +207,199 @@ if (contrastSlider && imageContainer) {
     });
 }
 
+// 3D Heart Viewer with Three.js
+let heartViewer = null;
+let animationFrameId = null;
 
+function init3DHeartViewer() {
+    const container = document.getElementById('heartViewer');
+    if (!container || heartViewer) return;
+
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x1a1a1a);
+
+    const camera = new THREE.PerspectiveCamera(
+        45,
+        container.clientWidth / container.clientHeight,
+        0.1,
+        1000
+    );
+    camera.position.z = 150;
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    container.appendChild(renderer.domElement);
+
+    // Lighting
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+    scene.add(ambientLight);
+
+    const directionalLight1 = new THREE.DirectionalLight(0xffffff, 0.8);
+    directionalLight1.position.set(1, 1, 1);
+    scene.add(directionalLight1);
+
+    const directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.4);
+    directionalLight2.position.set(-1, -1, -1);
+    scene.add(directionalLight2);
+
+    let isAutoRotating = true;
+    let mesh = null;
+    
+
+    // Load STL
+    const loader = new THREE.STLLoader();
+    const axesHelper = new THREE.AxesHelper(60); // length 60 units
+    scene.add(axesHelper);
+
+    loader.load(
+        'heart.stl',
+        function (geometry) {
+            const material = new THREE.MeshPhongMaterial({
+                color: 0xc9b79c,
+                specular: 0x6b5845,
+                shininess: 30
+            });
+
+            mesh = new THREE.Mesh(geometry, material);
+            
+            // Center and scale the model
+            geometry.computeBoundingBox();
+            const center = new THREE.Vector3();
+            geometry.boundingBox.getCenter(center);
+            mesh.position.sub(center);
+            
+            // Set initial rotation and position
+            geometry.rotateX(-1.5);  // Tilt forward slightly (adjust this value)
+            geometry.rotateY(0);   // Initial rotation angle (adjust this value)
+            geometry.rotateZ(0);     // Side tilt (adjust this value)
+            
+            // Adjust starting position if needed
+            geometry.translate(15, -350, -200);
+            scene.add(mesh);
+            
+            // Animation loop
+            function animate() {
+                if (!heartViewer || !heartViewer.isActive) {
+                    return; // Stop animation if viewer is not active
+                }
+                
+                animationFrameId = requestAnimationFrame(animate);
+                
+                if (isAutoRotating && mesh) {
+                    mesh.rotation.y -= 0.005; // Adjust rotation speed here
+                }
+                
+                renderer.render(scene, camera);
+            }
+            animate();
+             // --- Logging position and rotation every 0.5 seconds ---
+            // setInterval(() => {
+            //     console.log(
+            //         `Position: x=${mesh.position.x.toFixed(2)}, y=${mesh.position.y.toFixed(2)}, z=${mesh.position.z.toFixed(2)} | ` +
+            //         `Rotation: x=${mesh.rotation.x.toFixed(3)}, y=${mesh.rotation.y.toFixed(3)}, z=${mesh.rotation.z.toFixed(3)}`
+            //     );
+            // }, 500);
+        },
+        undefined,
+        function (error) {
+            console.error('Error loading STL:', error);
+        }
+    );
+
+
+    // Handle window resize
+    function onResize() {
+        if (container.clientWidth > 0 && heartViewer && heartViewer.isActive) {
+            camera.aspect = container.clientWidth / container.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(container.clientWidth, container.clientHeight);
+        }
+    }
+    window.addEventListener('resize', onResize);
+
+    // Mouse controls for rotation
+    let isDragging = false;
+    let previousMousePosition = { x: 0, y: 0 };
+
+    renderer.domElement.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        isAutoRotating = false; // Stop auto-rotation when user starts dragging
+        previousMousePosition = {
+            x: e.offsetX,
+            y: e.offsetY
+        };
+    });
+
+    renderer.domElement.addEventListener('mousemove', (e) => {
+        if (isDragging && mesh) {
+            const deltaMove = {
+                x: e.offsetX - previousMousePosition.x,
+                y: e.offsetY - previousMousePosition.y
+            };
+
+            mesh.rotation.y += deltaMove.x * 0.01;
+            mesh.rotation.x += deltaMove.y * 0.01;
+        }
+
+        previousMousePosition = {
+            x: e.offsetX,
+            y: e.offsetY
+        };
+    });
+
+    renderer.domElement.addEventListener('mouseup', () => {
+        isDragging = false;
+        // Optional: Resume auto-rotation after 0.5 seconds of no interaction
+        setTimeout(() => {
+            if (!isDragging) isAutoRotating = true;
+        }, 500);
+    });
+
+    renderer.domElement.addEventListener('mouseleave', () => {
+        isDragging = false;
+    });
+
+    // Store viewer data
+    heartViewer = {
+        scene: scene,
+        camera: camera,
+        renderer: renderer,
+        container: container,
+        isActive: true,
+        cleanup: function() {
+            this.isActive = false;
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+                animationFrameId = null;
+            }
+            window.removeEventListener('resize', onResize);
+            if (this.container && this.renderer.domElement) {
+                this.container.removeChild(this.renderer.domElement);
+            }
+            this.renderer.dispose();
+        }
+    };
+}
+
+function stopHeartViewer() {
+    if (heartViewer) {
+        heartViewer.cleanup();
+        heartViewer = null;
+    }
+}
+
+// Enhanced tab switching to properly manage 3D viewer
+const originalSwitchTab = switchTab;
+switchTab = function(tabName, element) {
+    // Stop heart viewer if switching away from research tab
+    if (tabName !== 'research' && heartViewer) {
+        stopHeartViewer();
+    }
+    
+    originalSwitchTab(tabName, element);
+    
+    // Initialize heart viewer when research tab is opened
+    if (tabName === 'research') {
+        setTimeout(init3DHeartViewer, 100);
+    }
+};
