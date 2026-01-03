@@ -248,8 +248,8 @@ function init3DHeartViewer() {
 
     // Load STL
     const loader = new THREE.STLLoader();
-    const axesHelper = new THREE.AxesHelper(60); // length 60 units
-    scene.add(axesHelper);
+    // const axesHelper = new THREE.AxesHelper(60); // length 60 units
+    // scene.add(axesHelper);
 
     loader.load(
         'heart.stl',

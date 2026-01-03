@@ -247,6 +247,137 @@ body {
     }
 }
 
+/* 3D Heart Viewer Styles */
+.render-block {
+    margin: 20px 0 30px 0;
+    padding: 15px;
+    background: rgba(232, 223, 200, 0.3);
+    border: 2px solid #8b7355;
+    border-radius: 4px;
+}
+
+.render-block h3 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2c2416;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stl-viewer {
+    width: 100%;
+    height: 400px;
+    background: #1a1a1a;
+    border: 2px solid #8b7355;
+    border-radius: 4px;
+    cursor: grab;
+}
+
+.stl-viewer:active {
+    cursor: grabbing;
+}
+
+.render-caption {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #5c4d3a;
+    font-style: italic;
+    text-align: center;
+}
+
+/* Research page specific styles */
+.research-block {
+    margin: 25px 0;
+}
+
+.research-block h3 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2c2416;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #8b7355;
+    padding-bottom: 5px;
+}
+
+.research-list {
+    list-style: none;
+    margin-left: 0;
+}
+
+.research-list li {
+    margin: 15px 0;
+    padding: 12px;
+    background: rgba(232, 223, 200, 0.2);
+    border-left: 3px solid #8b7355;
+}
+
+.status {
+    display: inline-block;
+    padding: 3px 10px;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 3px;
+    margin-left: 10px;
+    text-transform: uppercase;
+}
+
+.status.drafting {
+    background: #f4d03f;
+    color: #2c2416;
+}
+
+.status.data {
+    background: #85c1e2;
+    color: #2c2416;
+}
+
+.desc {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #3c3426;
+}
+
+.completed-item, .conference-item {
+    margin: 15px 0;
+    padding: 12px;
+    background: rgba(232, 223, 200, 0.2);
+    border-left: 3px solid #8b7355;
+}
+
+.completed-item .title, .conference-item .title {
+    display: block;
+    font-size: 15px;
+    color: #2c2416;
+    margin-bottom: 5px;
+}
+
+.meta {
+    font-size: 13px;
+    color: #5c4d3a;
+    margin: 3px 0;
+}
+
+.meta.subtle {
+    font-style: italic;
+    color: #7c6d5a;
+}
+
+.link {
+    display: inline-block;
+    margin-top: 8px;
+    color: #8b7355;
+    text-decoration: underline;
+    font-size: 13px;
+}
+
+.link:hover {
+    color: #6b5845;
+}
+
+
 /* Close File Button Styles */
 .close-btn {
     position: absolute;
