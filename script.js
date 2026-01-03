@@ -411,3 +411,38 @@ switchTab = function(tabName, element) {
         setTimeout(init3DHeartViewer, 100);
     }
 };
+
+const text = "REPORT";
+const typingSpeed = 200;  // milliseconds per character
+const erasingSpeed = 150; // milliseconds per character
+const pauseBetween = 1500; // pause before erasing or retyping
+let index = 0;
+let typing = true; // true = typing, false = erasing
+const el = document.getElementById("typing-report");
+
+function typeEffect() {
+    if (typing) {
+        // add one character
+        el.textContent += text.charAt(index);
+        index++;
+        if (index === text.length) {
+            typing = false;
+            setTimeout(typeEffect, pauseBetween);
+        } else {
+            setTimeout(typeEffect, typingSpeed);
+        }
+    } else {
+        // erase one character
+        el.textContent = text.substring(0, index - 1);
+        index--;
+        if (index === 0) {
+            typing = true;
+            setTimeout(typeEffect, pauseBetween);
+        } else {
+            setTimeout(typeEffect, erasingSpeed);
+        }
+    }
+}
+
+// start typing
+typeEffect();
