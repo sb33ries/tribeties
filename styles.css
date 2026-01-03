@@ -327,7 +327,7 @@ body {
 .status {
     display: inline-block;
     padding: 3px 10px;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: bold;
     border-radius: 3px;
     margin-left: 10px;
@@ -364,14 +364,14 @@ body {
 
 .completed-item .title, .conference-item .title {
     display: block;
-    font-size: 15px;
+    font-size: 18px;
     color: #2c2416;
     margin-bottom: 5px;
 }
 
 .meta {
-    font-size: 13px;
-    color: #5c4d3a;
+    font-size: 14px;
+    color: #020101;
     margin: 3px 0;
 }
 
@@ -380,15 +380,15 @@ body {
     color: #7c6d5a;
 }
 
-.link {
+.research-link {
     display: inline-block;
     margin-top: 8px;
-    color: #8b7355;
+    color: #4d3f2e;
     text-decoration: underline;
-    font-size: 13px;
+    font-size: 14px;
 }
 
-.link:hover {
+.research-link:hover {
     color: #6b5845;
 }
 
@@ -571,9 +571,10 @@ body {
     left: 0;
 } */
 
-.page-content {
+.page-content{
     display: none;
     animation: pageFlip 0.5s ease;
+    color:#000000;
 }
 
 .page-content.active {
@@ -613,7 +614,7 @@ h2 {
 }
 
 p {
-    color: #3c3426;
+    color: #070604;
     line-height: 1.8;
     margin-bottom: 15px;
 }
@@ -625,7 +626,7 @@ p {
 
 .field-label {
     font-weight: bold;
-    color: #2c2416;
+    color: #000000;
 }
 
 ul {
@@ -635,7 +636,7 @@ ul {
 
 li {
     margin: 8px 0;
-    color: #3c3426;
+    color: #000000;
 }
 
 /* Paper holes on left */

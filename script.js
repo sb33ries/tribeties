@@ -19,7 +19,7 @@ function updateFolderTilt() {
     const percentX = (mouseX - centerX) / centerX;
     const percentY = (mouseY - centerY) / centerY;
     
-    const maxTiltX = 10;  // limit vertical tilt
+    const maxTiltX = 5;  // limit vertical tilt
     const maxTiltY = 5; // allow more horizontal tilt
 
     const tiltX = -percentY * maxTiltX;
