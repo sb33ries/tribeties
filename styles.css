@@ -764,13 +764,10 @@ li {
 
 .project-gif-container {
     flex-shrink: 0;
-    width: 300px;
+    width: 350px;
 }
 
-.project-html-container {
-    flex-shrink: 0;
-    width: 500px;
-}
+
 
 .project-gif {
     width: 100%;
@@ -820,7 +817,7 @@ li {
 
 .art-image {
     width: 100%;
-    height: auto;
+    height: 250px;
     border: 2px solid rgba(139, 69, 19, 0.3);
     border-radius: 4px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
