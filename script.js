@@ -149,6 +149,19 @@ const imageContainer = document.querySelector('.ct-image-container');
 
 let loopInterval;
 
+const dateOpenedEl = document.getElementById("dateOpened");
+
+const now = new Date();
+
+const formattedDate = now.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+});
+
+dateOpenedEl.textContent = formattedDate;
+
+
 function initCTViewer() {
     if (!sliceImg) return; // Exit if CT viewer elements don't exist yet
     
