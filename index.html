@@ -73,6 +73,10 @@
                     Imaging
                     <div class="tab-tear"></div>
                 </button>
+                <button class="tab" onclick="switchTab('other-works', this)">
+                    Other Works
+                    <div class="tab-tear"></div>
+                </button>
 
             </div>
 
@@ -261,47 +265,56 @@
                     <hr class="ct-divider">
 
                     <div class="ct-section">
-                        <h3>Indication (Introduction):</h3>
-                        <p>Comprehensive technical assessment requested. This portfolio presents a detailed analysis of skills, capabilities, and professional background.</p>
-                    </div>
-
-                    <div class="ct-section">
-                        <h3>Technique (Skills):</h3>
-                        <p class="hover-reveal">
-                            <span class="blur-on-idle">Multiyear longitudinal acquisition including clinical scribing, data science research,
-                            imaging simulation, and community engagement. Images reviewed in axial plane.</span>
-                        </p>
+                        <h3>Indication:</h3>
+                        <p>Comprehensive assessment. This report summarizes background, skills, and interdisciplinary focus.</p>
                     </div>
 
                     <div class="ct-section">
                         <h3>Findings:</h3>
                         
-                        <p class="finding-title-ct">BRAIN/COGNITION (Interests):</p>
+                        <p class="finding-title-ct">BRAIN / COGNITION (Academic Interests):</p>
                         <p class="hover-reveal">
-                            <span class="blur-on-idle">A long-standing interest in understanding the brain and human cognition has guided my academic focus toward </span>
-                            medicine, imaging, data science, computational modeling, research, and machine learning
-                            <span class="blur-on-idle"> as tools to study complex biological systems, analyze large-scale data, and develop quantitative frameworks that connect theory with clinical application.</span>
+                            <span class="blur-on-idle">
+                                Sustained curiosity and stimulation of brain function has shaped an academic trajectory centered on
+                            </span>
+                            medicine, medical imaging, data science, computational modeling, and machine learning
+                            <span class="blur-on-idle">
+                                , emphasizing quantitative approaches to understand biological systems and clinical outcomes.
+                            </span>
                         </p>
-                        <p class="finding-title-ct">CARDIOPULMONARY (Hobbies):</p>
+
+                        <p class="finding-title-ct">CARDIOPULMONARY (Athletics & Physical Activity):</p>
                         <p class="hover-reveal">
-                            <span class="blur-on-idle">Outside of academics, physical activity plays a central role in maintaining balance and discipline through </span>
+                            <span class="blur-on-idle">
+                                Regular engagement in endurance and physical activities including
+                            </span>
                             swimming, running, biking, tennis, and badminton
-                            <span class="blur-on-idle">, which collectively emphasize endurance, coordination, and sustained commitment over time.</span>
+                            <span class="blur-on-idle">
+                                , reinforcing discipline, resilience, coordination, and long-term commitment.
+                            </span>
                         </p>
-                        <p class="finding-title-ct">EXTREMITIES (Creative Hobbies):</p>
+
+                        <p class="finding-title-ct">EXTREMITIES (Creative Practice):</p>
                         <p class="hover-reveal">
-                            <span class="blur-on-idle">Creative expression is explored through </span>
+                            <span class="blur-on-idle">
+                                Ongoing creative development through
+                            </span>
                             piano performance
-                            <span class="blur-on-idle"> and visual art, with recent focus on </span>
-                            drawing
-                            <span class="blur-on-idle"> as a way to develop fine motor control, attention to detail, and visual storytelling.</span>
+                            <span class="blur-on-idle">
+                                and visual art, with recent focus on
+                            </span>
+                            drawing and sketching
+                            <span class="blur-on-idle">
+                                , supporting fine motor control, precision, and visual communication.
+                            </span>
                         </p>
                     </div>
 
                     <div class="ct-section">
-                        <h3>Impression (Summary):</h3>
-                        <p>Strong candidate demonstrating rare integration of technical expertise, analytical thinking, and creative problem-solving. Findings support readiness for advanced challenges and future contributions to the field.</p>
+                        <h3>Impression:</h3>
+                        <p>Demonstrates a strong interdisciplinary profile combining technical rigor, analytical depth, physical discipline, and creative problem-solving. Overall findings indicate preparedness for advanced academic and professional challenges.</p>
                     </div>
+
 
                     <!-- Button to open CT Viewer -->
                     <button class="open-viewer-btn" onclick="toggleCTViewer()">
@@ -383,6 +396,100 @@
                         </a>
                     </p>
                 </div>
+
+                <!-- Other Works Page -->
+                <div class="page-content" id="other-works">
+                    <div class="stamp">CREATIVE</div>
+                    <h2>OTHER WORKS</h2>
+
+                    <div class="field">
+                        <span class="field-label">SECTION:</span> Additional Projects & Portfolio
+                    </div>
+
+                    <!-- DATA PROJECTS -->
+                    <div class="research-block">
+                        <h3>OTHER PROJECTS</h3>
+                        
+                        <div class="data-project-item">
+                            <div class="project-gif-container">
+                                <img src="assets/balls_gif.gif" alt="Project 1" class="project-gif">
+                            </div>
+                            <div class="project-details">
+                                <strong class="title">Math Simulations</strong>
+                                <p class="project-description">Basic simulations based on newtonian physics.</p>
+                                <div class="project-links">
+                                    <!-- <a href="https://github.com/yourusername/project1" class="research-link" target="_blank" rel="noopener noreferrer">View on GitHub</a> -->
+                                    <a href="https://sb33ries.github.io/brainrot/" class="research-link" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="data-project-item">
+                            <div class="project-html-container">
+                                <iframe 
+                                    src="assets/income_classification_map.html"
+                                    class="project-iframe"
+                                    loading="lazy">
+                                </iframe>
+                            </div>
+                            <div class="project-details">
+                                <strong class="title">Color Guesser</strong>
+                                <p class="project-description">Game where you can test your color perception.</p>
+                                <div class="project-links">
+                                    <a href="https://sb33ries.github.io/DATA303_finalproject" class="research-link" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="data-project-item">
+                            <div class="project-gif-container">
+                                <img src="assets/guess_color1.png" alt="Project 2" class="project-gif">
+                            </div>
+                            <div class="project-details">
+                                <strong class="title">Color Guesser</strong>
+                                <p class="project-description">Game where you can test your color perception.</p>
+                                <div class="project-links">
+                                    <a href="https://sb33ries.github.io/colorgame/" class="research-link" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add more data projects as needed -->
+                    </div>
+
+                    <!-- ART PORTFOLIO -->
+                    <div class="research-block">
+                        <h3>ART</h3>
+                        
+                        <div class="art-gallery">
+                            <div class="art-item">
+                                <img src="path/to/your/art1.jpg" alt="Art piece 1" class="art-image">
+                                <p class="art-caption">Optional caption for artwork 1</p>
+                            </div>
+
+                            <div class="art-item">
+                                <img src="path/to/your/art2.jpg" alt="Art piece 2" class="art-image">
+                                <p class="art-caption">Optional caption for artwork 2</p>
+                            </div>
+
+                            <div class="art-item">
+                                <img src="path/to/your/art3.jpg" alt="Art piece 3" class="art-image">
+                                <p class="art-caption">Optional caption for artwork 3</p>
+                            </div>
+
+                            <div class="art-item">
+                                <img src="path/to/your/art4.jpg" alt="Art piece 4" class="art-image">
+                                <p class="art-caption">Optional caption for artwork 4</p>
+                            </div>
+
+                            <!-- Add more art items as needed -->
+                        </div>
+                    </div>
+                </div>
+
+
+
 
             </div>
         </div>

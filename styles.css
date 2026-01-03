@@ -749,6 +749,114 @@ li {
     color: #2c2416;
 }
 
+/* DATA PROJECTS STYLING */
+.data-project-item {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    padding-bottom: 25px;
+    border-bottom: 1px dashed rgba(139, 69, 19, 0.3);
+}
+
+.data-project-item:last-child {
+    border-bottom: none;
+}
+
+.project-gif-container {
+    flex-shrink: 0;
+    width: 300px;
+}
+
+.project-html-container {
+    flex-shrink: 0;
+    width: 500px;
+}
+
+.project-gif {
+    width: 100%;
+    height: auto;
+    border: 2px solid rgba(139, 69, 19, 0.3);
+    border-radius: 4px;
+}
+.project-iframe {
+    width: 100%;
+    height: 400px; /* Adjust this value based on your content */
+    border: 2px solid rgba(139, 69, 19, 0.3);
+    border-radius: 4px;
+    background: white;
+}
+.project-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.project-description {
+    color: #2b1810;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.project-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+/* ART GALLERY STYLING */
+.art-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 15px;
+}
+
+.art-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.art-image {
+    width: 100%;
+    height: auto;
+    border: 2px solid rgba(139, 69, 19, 0.3);
+    border-radius: 4px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.art-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.art-caption {
+    font-size: 0.9em;
+    color: #5a3a2a;
+    font-style: italic;
+    text-align: center;
+    margin: 0;
+}
+
+/* RESPONSIVE ADJUSTMENTS */
+@media (max-width: 768px) {
+    .data-project-item {
+        flex-direction: column;
+    }
+    
+    .project-gif-container {
+        width: 100%;
+    }
+    
+    .art-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 15px;
+    }
+}
+
+
 /* Open Viewer Button */
 .open-viewer-btn {
     background: #8b7355;
