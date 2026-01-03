@@ -14,15 +14,17 @@ function updateFolderTilt() {
     
     // Calculate tilt based on mouse position
     const centerX = window.innerWidth / 2;
-    const centerY = window.innerHeight / 2;
+    const centerY = window.innerHeight / 1;
     
     const percentX = (mouseX - centerX) / centerX;
     const percentY = (mouseY - centerY) / centerY;
     
-    const maxTilt = 11; // Maximum tilt in degrees
-    const tiltX = -percentY * maxTilt;
-    const tiltY = percentX * maxTilt;
-    
+    const maxTiltX = 10;  // limit vertical tilt
+    const maxTiltY = 5; // allow more horizontal tilt
+
+    const tiltX = -percentY * maxTiltX;
+    const tiltY = percentX * maxTiltY;
+        
     // Apply tilt to closed folder if visible
     if (closedFolder && !document.getElementById('folder-closed').classList.contains('hidden')) {
         closedFolder.style.transform = `perspective(1000px)translateZ(1px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
@@ -30,8 +32,10 @@ function updateFolderTilt() {
     
     // Apply tilt to open portfolio if visible
     if (portfolio && portfolio.classList.contains('active')) {
-        const subtleTiltX = -percentY * 3;
-        const subtleTiltY = percentX * 3;
+        // const subtleTiltX = -percentY * 3;
+        // Disable Y tilt only on research tab (change 'research' to any tab name you want)
+        const subtleTiltX = (window.currentTab === 'research') ? 0 : -percentY * 3;
+        const subtleTiltY = (window.currentTab === 'research') ? 0 : percentX * 3;
         portfolio.style.transform = `perspective(1000px)translateZ(1px) rotateX(${subtleTiltX}deg) rotateY(${subtleTiltY}deg)`;
     }
 
@@ -80,6 +84,7 @@ function closeFolder() {
 }
 
 function switchTab(tabName, element) {
+    window.currentTab = tabName;
     // Update tab buttons
     const tabs = document.querySelectorAll('.tab');
     tabs.forEach(tab => tab.classList.remove('active'));
