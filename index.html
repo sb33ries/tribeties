@@ -31,193 +31,286 @@
 
     <!-- Main Portfolio Content -->
     <div id="portfolio-container">
-        <!-- Close File Button - Try different options by uncommenting -->
-        
-        <!-- OPTION 1: Paper Clip Style -->
-        <!-- <button class="close-btn close-btn-clip" onclick="closeFolder()">
-            <span class="clip-icon">📎</span> CLOSE FILE
-        </button> -->
-        
-        <!-- OPTION 2: Stamp Style (UNCOMMENT TO USE) -->
-        <!-- <button class="close-btn close-btn-stamp" onclick="closeFolder()">
-            CLOSE FILE
-        </button> -->
-        
-        <!-- OPTION 3: Tab Style (UNCOMMENT TO USE) -->
-        <!-- <button class="close-btn close-btn-tab" onclick="closeFolder()">
-            ← CLOSE
-        </button> -->
-        
-        <!-- OPTION 4: Minimal Text (UNCOMMENT TO USE) -->
-        <button class="close-btn close-btn-minimal" onclick="closeFolder()">
-            ✕ Close
-        </button>
-
-        <div class="tab-container">
-            <button class="tab active" onclick="switchTab('welcome', this)">
-                Welcome
-                <div class="tab-tear"></div>
-            </button>
-            <button class="tab" onclick="switchTab('research', this)">
-                Research
-                <div class="tab-tear"></div>
-            </button>
-            <button class="tab" onclick="switchTab('ct-scan', this)">
-                CT Scan
-                <div class="tab-tear"></div>
-            </button>
-            <button class="tab" onclick="switchTab('about', this)">
-                About Me
-                <div class="tab-tear"></div>
-            </button>
-        </div>
-
-        <div class="content-area">
-            <div class="paper-holes">
-                <div class="hole"></div>
-                <div class="hole"></div>
-                <div class="hole"></div>
-            </div>
-
-            <!-- Paper texture elements -->
-            <div class="paper-stain paper-stain-1"></div>
-            <div class="paper-stain paper-stain-2"></div>
-            <div class="fold-mark"></div>
-
-            <!-- Welcome Page -->
-            <div class="page-content active" id="welcome">
-                <div class="stamp">CONFIDENTIAL</div>
-                <h2>PATIENT RECORDS - WELCOME</h2>
-                <div class="field">
-                    <span class="field-label">FILE NO:</span> #2025-001
-                </div>
-                <div class="field">
-                    <span class="field-label">DATE OPENED:</span> January 2, 2026
-                </div>
-                <div class="field">
-                    <span class="field-label">STATUS:</span> Active Review
-                </div>
-                <br>
-                <p>Welcome to my professional portfolio. This collection represents a comprehensive overview of my work, research, and capabilities.</p>
-                <p>Please navigate through the tabs above to explore different sections of this file. Each section contains detailed documentation of my professional journey and expertise.</p>
-                <p><strong>CONTENTS OVERVIEW:</strong></p>
-                <ul>
-                    <li><strong>Research:</strong> Detailed findings and project documentation</li>
-                    <li><strong>CT Scan:</strong> Deep analysis and technical capabilities</li>
-                    <li><strong>About Me:</strong> Background information and qualifications</li>
-                </ul>
-            </div>
-
-            <!-- Research Page -->
-            <div class="page-content" id="research">
-                <div class="stamp">REVIEWED</div>
-                <h2>RESEARCH FINDINGS</h2>
-                <div class="field">
-                    <span class="field-label">SECTION:</span> Project Documentation
-                </div>
-                <br>
-                <p><strong>PROJECT ALPHA:</strong></p>
-                <p>Research conducted on advanced methodologies and implementation strategies. Key findings include breakthrough developments in core competencies and innovative approaches to problem-solving.</p>
-                <br>
-                <p><strong>PROJECT BETA:</strong></p>
-                <p>Collaborative research initiative focusing on cutting-edge technologies and their practical applications. Results demonstrate significant advancement in field expertise.</p>
-                <br>
-                <p><strong>ONGOING INVESTIGATIONS:</strong></p>
-                <ul>
-                    <li>Advanced technical research and development</li>
-                    <li>Cross-functional collaboration studies</li>
-                    <li>Innovation in specialized domains</li>
-                </ul>
-            </div>
-
-            <!-- CT Scan Page -->
-            <div class="page-content" id="ct-scan">
-                <div class="stamp">ANALYZED</div>
-                
-                <div class="ct-report-header">
-                    <div class="patient-name-ct">[Your Name]</div>
-                    <div><strong>SEX:</strong> [M/F]</div>
-                    <div><strong>EMAIL:</strong> your@email.com</div>
-                    <div><strong>PHONE:</strong> (555) 555-5555</div>
-                    <div><strong>REPORTED:</strong> <span class="report-date"></span></div>
-                    <div><strong>APT ID:</strong> CT-482917</div>
-                    <div><strong>METHOD:</strong> Cardiac CT</div>
-                </div>
-
-                <hr class="ct-divider">
-                <h2 class="ct-title">CT REPORT</h2>
-                <hr class="ct-divider">
-
-                <div class="ct-section">
-                    <h3>Indication (Introduction):</h3>
-                    <p>Comprehensive technical assessment requested. This portfolio presents a detailed analysis of skills, capabilities, and professional background.</p>
-                </div>
-
-                <div class="ct-section">
-                    <h3>Technique (Skills):</h3>
-                    <p>Multiyear longitudinal acquisition including technical development, research experience, project implementation, and community engagement. Images reviewed in axial plane.</p>
-                </div>
-
-                <div class="ct-section">
-                    <h3>Findings:</h3>
-                    
-                    <p class="finding-title-ct">COGNITION (Interests):</p>
-                    <p>Strong interest in problem-solving, system design, and computational thinking. Demonstrated proficiency in programming, data analysis, and technical innovation.</p>
-
-                    <p class="finding-title-ct">TECHNICAL (Skills):</p>
-                    <p>Core competencies include: Programming & Development, System Architecture & Design, Data Analysis & Visualization, Problem-Solving Methodologies, and Cross-Platform Integration.</p>
-
-                    <p class="finding-title-ct">CREATIVE (Hobbies):</p>
-                    <p>Balanced approach to work and personal development through various creative and physical activities that enhance discipline and coordination.</p>
-                </div>
-
-                <div class="ct-section">
-                    <h3>Impression (Summary):</h3>
-                    <p>Strong candidate demonstrating rare integration of technical expertise, analytical thinking, and creative problem-solving. Findings support readiness for advanced challenges and future contributions to the field.</p>
-                </div>
-
-                <!-- Button to open CT Viewer -->
-                <button class="open-viewer-btn" onclick="toggleCTViewer()">
-                    <span class="viewer-icon">📊</span> VIEW CT SCANS
-                </button>
-            </div>
-
+        <div id="closedFolderElement">
+            <!-- Close File Button - Try different options by uncommenting -->
             
+            <!-- OPTION 1: Paper Clip Style -->
+            <!-- <button class="close-btn close-btn-clip" onclick="closeFolder()">
+                <span class="clip-icon">📎</span> CLOSE FILE
+            </button> -->
+            
+            <!-- OPTION 2: Stamp Style (UNCOMMENT TO USE) -->
+            <!-- <button class="close-btn close-btn-stamp" onclick="closeFolder()">
+                CLOSE FILE
+            </button> -->
+            
+            <!-- OPTION 3: Tab Style (UNCOMMENT TO USE) -->
+            <!-- <button class="close-btn close-btn-tab" onclick="closeFolder()">
+                ← CLOSE
+            </button> -->
+            
+            <!-- OPTION 4: Minimal Text (UNCOMMENT TO USE) -->
+            <button class="close-btn close-btn-minimal" onclick="closeFolder()">
+                ✕ Close
+            </button>
 
-            <!-- About Me Page -->
-            <div class="page-content" id="about">
-                <div class="stamp">VERIFIED</div>
-                <h2>ABOUT ME - PERSONAL HISTORY</h2>
-                <div class="field">
-                    <span class="field-label">SUBJECT NAME:</span> [Your Name]
+            <div class="tab-container">
+                <button class="tab active" onclick="switchTab('welcome', this)">
+                    Welcome
+                    <div class="tab-tear"></div>
+                </button>
+                <button class="tab" onclick="switchTab('about', this)">
+                    About Me
+                    <div class="tab-tear"></div>
+                </button>
+                <button class="tab" onclick="switchTab('research', this)">
+                    Research
+                    <div class="tab-tear"></div>
+                </button>
+                <button class="tab" onclick="switchTab('ct-scan', this)">
+                    Imaging
+                    <div class="tab-tear"></div>
+                </button>
+
+            </div>
+
+            <div class="content-area">
+                <div class="paper-holes">
+                    <div class="hole"></div>
+                    <div class="hole"></div>
+                    <div class="hole"></div>
                 </div>
-                <div class="field">
-                    <span class="field-label">PROFESSIONAL TITLE:</span> [Your Title]
+
+                <!-- Paper texture elements -->
+                <div class="paper-stain paper-stain-1"></div>
+                <div class="paper-stain paper-stain-2"></div>
+                <div class="fold-mark"></div>
+
+                <!-- Welcome Page -->
+                <div class="page-content active" id="welcome">
+                    <div class="stamp">CONFIDENTIAL</div>
+                    <h2>PATIENT RECORDS - WELCOME</h2>
+                    <div class="field">
+                        <span class="field-label">FILE NO:</span> #2025-001
+                    </div>
+                    <div class="field">
+                        <span class="field-label">DATE OPENED:</span> January 2, 2026
+                    </div>
+                    <div class="field">
+                        <span class="field-label">STATUS:</span> Active Review
+                    </div>
+                    <br>
+                    <p>My name is Shinjer Li. Welcome to my professional portfolio! This collection represents a comprehensive overview of my work, research, and background.</p>
+                    <p>Please navigate through the tabs above to explore different sections of this website. Each section contains a representation of who I am.</p>
+                    <p><strong>CONTENTS OVERVIEW:</strong></p>
+                    <ul>
+                        <li><strong>About Me:</strong> Background information and qualifications</li>
+                        <li><strong>Research:</strong> Detailed findings and project documentation</li>
+                        <li><strong>Imaging:</strong> Deep analysis and technical capabilities</li>
+                    </ul>
                 </div>
-                <div class="field">
-                    <span class="field-label">LOCATION:</span> [Your Location]
+
+                <!-- Research Page -->
+                <div class="page-content" id="research">
+                    <div class="stamp">REVIEWED</div>
+                    <h2>RESEARCH FINDINGS</h2>
+
+                    <div class="field">
+                        <span class="field-label">SECTION:</span> Project Documentation
+                    </div>
+
+                    <!-- 3D HEART RENDER -->
+                    <div class="render-block">
+                        <h3>ANATOMICAL MODEL</h3>
+                        <div id="heartViewer" class="stl-viewer"></div>
+                        <p class="render-caption">
+                            3D cardiac model used for visualization and segmentation research
+                        </p>
+                    </div>
+
+                    <!-- ONGOING WORK -->
+                    <div class="research-block">
+                        <h3>ONGOING WORK</h3>
+                        <ul class="research-list">
+                            <li>
+                                <strong>Automated Cardiac Segmentation from CT Imaging</strong>
+                                <span class="status drafting">Drafting manuscript</span>
+                                <p class="desc">
+                                    Development of automated pipelines for anatomical segmentation using medical imaging data.
+                                </p>
+                            </li>
+
+                            <li>
+                                <strong>Quantitative Imaging Biomarkers</strong>
+                                <span class="status data">Data collection</span>
+                                <p class="desc">
+                                    Exploring reproducible biomarkers derived from volumetric imaging and signal analysis.
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- COMPLETED WORK -->
+                    <div class="research-block">
+                        <h3>COMPLETED WORK</h3>
+
+                        <div class="completed-item">
+                            <strong class="title">
+                                Computational Methods in NMR Relaxometry
+                            </strong>
+                            <div class="meta">
+                                Shinjer Li, Sam [Last Name], et al. · 2024
+                            </div>
+                            <a href="#" class="link">View publication</a>
+                        </div>
+                    </div>
+
+                    <!-- CONFERENCE PRESENTATIONS -->
+                    <div class="research-block">
+                        <h3>CONFERENCE PRESENTATIONS</h3>
+
+                        <div class="conference-item">
+                            <strong class="title">
+                                Advances in Time-Domain NMR Simulation
+                            </strong>
+                            <div class="meta">
+                                International Society of Magnetic Resonance · Chicago, IL
+                            </div>
+                            <div class="meta subtle">
+                                March 2024
+                            </div>
+                            <a href="#" class="link">View presentation (PDF)</a>
+                        </div>
+                    </div>
                 </div>
-                <br>
-                <p><strong>BACKGROUND:</strong></p>
-                <p>Passionate professional with extensive experience in technology and innovation. Dedicated to continuous learning and pushing the boundaries of what's possible.</p>
-                <br>
-                <p><strong>EDUCATION & QUALIFICATIONS:</strong></p>
-                <ul>
-                    <li>[Your Degree/Certification]</li>
-                    <li>[Additional Qualifications]</li>
-                    <li>[Relevant Courses or Training]</li>
-                </ul>
-                <br>
-                <p><strong>CONTACT INFORMATION:</strong></p>
-                <div class="field">
-                    <span class="field-label">EMAIL:</span> [your.email@example.com]
+
+                <!-- CT Scan Page -->
+                <div class="page-content" id="ct-scan">
+                    <div class="stamp">ANALYZED</div>
+                    
+                    <div class="ct-report-header">
+                        <div class="patient-name-ct">Shinjer Li</div>
+                        <div><strong>SEX:</strong> M</div>
+                        <div><strong>PHONE:</strong> (571) 435-2214</div>
+                        <div><strong>REPORTED:</strong> <span class="report-date"></span></div>
+                        <div><strong>APT ID:</strong> CT-482917</div>
+                        <div><strong>METHOD:</strong> Cardiac CT</div>
+                        <div><strong>EMAIL:</strong> lijer.2214@gmail.com</div>
+                    </div>
+
+                    <hr class="ct-divider">
+                    <h2 class="ct-title">CT REPORT</h2>
+                    <hr class="ct-divider">
+
+                    <div class="ct-section">
+                        <h3>Indication (Introduction):</h3>
+                        <p>Comprehensive technical assessment requested. This portfolio presents a detailed analysis of skills, capabilities, and professional background.</p>
+                    </div>
+
+                    <div class="ct-section">
+                        <h3>Technique (Skills):</h3>
+                        <p>Multiyear longitudinal acquisition including technical development, research experience, project implementation, and community engagement. Images reviewed in axial plane.</p>
+                    </div>
+
+                    <div class="ct-section">
+                        <h3>Findings:</h3>
+                        
+                        <p class="finding-title-ct">COGNITION (Interests):</p>
+                        <p>Strong interest in problem-solving, system design, and computational thinking. Demonstrated proficiency in programming, data analysis, and technical innovation.</p>
+
+                        <p class="finding-title-ct">TECHNICAL (Skills):</p>
+                        <p>Core competencies include: Programming & Development, System Architecture & Design, Data Analysis & Visualization, Problem-Solving Methodologies, and Cross-Platform Integration.</p>
+
+                        <p class="finding-title-ct">CREATIVE (Hobbies):</p>
+                        <p>Balanced approach to work and personal development through various creative and physical activities that enhance discipline and coordination.</p>
+                    </div>
+
+                    <div class="ct-section">
+                        <h3>Impression (Summary):</h3>
+                        <p>Strong candidate demonstrating rare integration of technical expertise, analytical thinking, and creative problem-solving. Findings support readiness for advanced challenges and future contributions to the field.</p>
+                    </div>
+
+                    <!-- Button to open CT Viewer -->
+                    <button class="open-viewer-btn" onclick="toggleCTViewer()">
+                        <span class="viewer-icon">📊</span> VIEW CT SCANS
+                    </button>
                 </div>
-                <div class="field">
-                    <span class="field-label">LINKEDIN:</span> [Your LinkedIn]
+
+                
+
+                <!-- About Me Page -->
+                <div class="page-content" id="about">
+                    <div class="stamp">VERIFIED</div>
+                    <h2>ABOUT ME</h2>
+
+                    <div class="field">
+                        <span class="field-label">NAME:</span> Shinjer Li
+                    </div>
+                    <div class="field">
+                        <span class="field-label">CURRENT ROLE:</span> Medical Student, Class of 2029
+                    </div>
+                    <div class="field">
+                        <span class="field-label">INSTITUTION:</span> Eastern Virginia Medical School (EVMS)
+                    </div>
+
+                    <br>
+
+                    <p><strong>BACKGROUND:</strong></p>
+                    <p>
+                        First year medical student with a strong background in data science, machine learning, computational problem solving, and innovation.
+                        Interested in the intersection of imaging, informatics, and clinical medicine.
+                    </p>
+
+                    <!-- <br> -->
+
+                    <p><strong>EDUCATION:</strong></p>
+                    <ul>
+                        <li>
+                            <strong>Doctor of Medicine (MD)</strong> — Macon & Joan Brock Virginia Health Sciences Eastern Virginia Medical School at Old Dominion University
+                            <br>
+                            <em>Expected Graduation May 2029</em>
+                        </li>
+                        <li>
+                            <strong>Bachelor of Science (BS)</strong> — William & Mary  
+                            <br>
+                            <em>Chemistry & Data Science, Graduated December 2024</em>
+                        </li>
+                    </ul>
+
+                    <p><strong>PROFESSIONAL AFFILIATIONS & RADIOLOGY SOCIETIES:</strong></p>
+                    <ul>
+                        <li>American College of Radiology (<a href="https://www.acr.org" target="_blank" rel="noopener noreferrer">ACR</a>), 2026</li>
+                        <li>Radiological Society of North America (<a href="https://www.rsna.org" target="_blank" rel="noopener noreferrer">RSNA</a>), 2026</li>
+                        <li>Society for Imaging Informatics in Medicine (<a href="https://siim.org" target="_blank" rel="noopener noreferrer">SIIM</a>), 2026</li>
+                        <li>Society of Interventional Radiology (<a href="https://www.sirweb.org" target="_blank" rel="noopener noreferrer">SIR</a>), 2026</li>
+                        <li>Society of Nuclear Medicine and Molecular Imaging (<a href="https://www.snmmi.org" target="_blank" rel="noopener noreferrer">SNMMI</a>), 2026</li>
+                    </ul>
+
+                    <br>
+
+                    <div class="field">
+                        <span class="field-label">HOBBIES:</span> I grew up swimming competitively but I like to run and bike when it's warmer! I also enjoy racquet and team sports like tennis, badminton, and volleyball. Some of my creative hobbies include playing the piano and sketching.
+                    </div>
+                    <div class="field">
+                        <span class="field-label">EMAIL:</span> <a href="mailto:lijer.2214@gmail.com">lijer.2214@gmail.com</a>
+                    </div>
+                    <div class="field">
+                        <span class="field-label">PHONE:</span> (571) 435-2214
+                    </div>
+                    <div class="field">
+                        <span class="field-label">GITHUB:</span>
+                        <a href="https://github.com/sb33ries" target="_blank" rel="noopener noreferrer">
+                            github.com/sb33ries
+                        </a>
+                    </div>
+                    <p>
+                        <strong>Curriculum Vitae:</strong>
+                        <a href="/files/Shinjer_Li_CV.pdf" target="_blank" rel="noopener noreferrer">
+                            View CV (PDF)
+                        </a>
+                    </p>
                 </div>
-                <div class="field">
-                    <span class="field-label">GITHUB:</span> [Your GitHub]
-                </div>
+
             </div>
         </div>
     </div>
@@ -227,7 +320,7 @@
         
         <div class="ct-viewer-inner">
             <h3 class="viewer-title">CT IMAGING VIEWER</h3>
-            <p class="viewer-instructions">(hover to pause · scroll to navigate)</p>
+            <p class="viewer-instructions"><strong>(hover to pause · scroll to navigate)</strong></p>
             
             <div class="ct-image-container">
                 <div class="ct-overlay">

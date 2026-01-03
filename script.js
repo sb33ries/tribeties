@@ -19,20 +19,20 @@ function updateFolderTilt() {
     const percentX = (mouseX - centerX) / centerX;
     const percentY = (mouseY - centerY) / centerY;
     
-    const maxTilt = 15; // Maximum tilt in degrees
+    const maxTilt = 11; // Maximum tilt in degrees
     const tiltX = -percentY * maxTilt;
     const tiltY = percentX * maxTilt;
     
     // Apply tilt to closed folder if visible
     if (closedFolder && !document.getElementById('folder-closed').classList.contains('hidden')) {
-        closedFolder.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+        closedFolder.style.transform = `perspective(1000px)translateZ(1px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
     }
     
     // Apply tilt to open portfolio if visible
     if (portfolio && portfolio.classList.contains('active')) {
-        const subtleTiltX = -percentY * 5;
-        const subtleTiltY = percentX * 5;
-        portfolio.style.transform = `perspective(1000px) rotateX(${subtleTiltX}deg) rotateY(${subtleTiltY}deg)`;
+        const subtleTiltX = -percentY * 3;
+        const subtleTiltY = percentX * 3;
+        portfolio.style.transform = `perspective(1000px)translateZ(1px) rotateX(${subtleTiltX}deg) rotateY(${subtleTiltY}deg)`;
     }
 
     // Apply tilt to CT viewer if open
@@ -206,3 +206,5 @@ if (contrastSlider && imageContainer) {
         imageContainer.style.filter = `contrast(${contrastSlider.value}%)`;
     });
 }
+
+
