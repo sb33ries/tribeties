@@ -22,8 +22,8 @@ function updateFolderTilt() {
     const maxTiltX = 5;  // limit vertical tilt
     const maxTiltY = 5; // allow more horizontal tilt
 
-    const tiltX = -percentY * maxTiltX;
-    const tiltY = percentX * maxTiltY;
+    const tiltX = -percentY * maxTiltX * 2;
+    const tiltY = percentX * maxTiltY * 2;
         
     // Apply tilt to closed folder if visible
     if (closedFolder && !document.getElementById('folder-closed').classList.contains('hidden')) {
@@ -37,7 +37,7 @@ function updateFolderTilt() {
         const noTiltTabs = ['research', 'other-works'];
 
         const subtleTiltX = noTiltTabs.includes(window.currentTab) ? 0 : -percentY * 3;
-        const subtleTiltY = noTiltTabs.includes(window.currentTab) ? 0 :  percentX * 3;
+        const subtleTiltY = noTiltTabs.includes(window.currentTab) ? 0 :  percentX * 2;
 
         portfolio.style.transform = `perspective(1000px)translateZ(1px) rotateX(${subtleTiltX}deg) rotateY(${subtleTiltY}deg)`;
     }
@@ -459,3 +459,74 @@ function typeEffect() {
 
 // start typing
 typeEffect();
+
+// ============================================
+// MOBILE NOTICE & SIMPLIFIED VIEW FUNCTIONS
+// ============================================
+
+// Check screen width on load and show notice if needed
+window.addEventListener('load', function() {
+    if (window.innerWidth < 800) {
+        document.getElementById('mobile-notice').classList.remove('hidden');
+        document.getElementById('folder-closed').style.display = 'none';
+    }
+});
+
+// Proceed to simplified version from mobile notice
+function proceedToSimplified() {
+    document.getElementById('mobile-notice').classList.add('hidden');
+    document.getElementById('simplified-view').classList.add('active');
+    document.getElementById('folder-closed').style.display = 'none';
+    document.getElementById('portfolio-container').style.display = 'none';
+    
+    // Hide return button on mobile
+    if (window.innerWidth < 800) {
+        document.getElementById('returnBtn').style.display = 'none';
+    }
+}
+
+// Switch to simplified view from full portfolio (desktop only)
+function switchToSimplified() {
+    document.getElementById('portfolio-container').classList.remove('active');
+    document.getElementById('portfolio-container').style.display = 'none';
+    document.getElementById('folder-closed').style.display = 'none';
+    document.getElementById('simplified-view').classList.add('active');
+    // Close CT viewer if it's open
+    const ctPanel = document.getElementById('ctViewerPanel');
+    if (ctPanel && ctPanel.classList.contains('open')) {
+        ctPanel.classList.remove('open');
+    }
+    
+    // Stop heart viewer if it's running
+    if (heartViewer) {
+        stopHeartViewer();
+    }
+    // Scroll to top
+    window.scrollTo(0, 0);
+}
+
+// Return to full version from simplified view
+function returnToFull() {
+    document.getElementById('simplified-view').classList.remove('active');
+    
+    // Reset body/html height to prevent stretching
+    // document.body.style.height = '100vh';
+    // document.body.style.overflow = 'hidden';
+    // document.documentElement.style.height = '100vh';
+    
+    document.getElementById('folder-closed').style.display = 'none';
+    document.getElementById('folder-closed').classList.add('hidden');
+    document.getElementById('portfolio-container').style.display = 'block';
+    document.getElementById('portfolio-container').classList.add('active');
+    // Reinitialize viewers based on current tab
+    if (window.currentTab === 'research') {
+        setTimeout(init3DHeartViewer, 100);
+    } else if (window.currentTab === 'ct-scan') {
+        const panel = document.getElementById('ctViewerPanel');
+        if (!panel.classList.contains('open')) {
+            toggleCTViewer();
+        }
+    }
+    // Scroll to top
+    window.scrollTo(0, 0);
+}

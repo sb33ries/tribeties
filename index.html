@@ -16,6 +16,127 @@ Maybe remove some socities
 -->
 
 <body>
+    
+    <!-- Mobile Warning Notice -->
+    <div id="mobile-notice" class="mobile-notice hidden">
+        <div class="notice-content">
+            <div class="stamp">NOTICE</div>
+            <h2>VIEWING NOTICE</h2>
+            <p>This portfolio is optimized for desktop viewing. For the best experience, please use a laptop or desktop computer with a screen width of at least 800px.</p>
+            <p>You may proceed to a simplified text-only version of this portfolio, or return on a larger device for the full interactive experience.</p>
+            <button class="notice-btn" onclick="proceedToSimplified()">PROCEED TO SIMPLIFIED VERSION</button>
+        </div>
+    </div>
+
+    <!-- Simplified Portfolio View -->
+    <div id="simplified-view" class="simplified-view hidden">
+        <div class="simplified-container">
+            <div class="simplified-header">
+                <h1>SHINJER LI - PORTFOLIO</h1>
+                <p class="field"><span class="field-label">FILE NO:</span> #2025-001</p>
+                <button class="view-toggle-btn" onclick="returnToFull()" id="returnBtn">← RETURN TO FULL VERSION</button>
+            </div>
+
+            <div class="simplified-content">
+                <!-- ABOUT ME SECTION -->
+                <section class="simplified-section">
+                    <h2>ABOUT ME</h2>
+                    <div class="field"><span class="field-label">NAME:</span> Shinjer Li (rhymes with ginger)</div>
+                    <div class="field"><span class="field-label">CURRENT ROLE:</span> Medical Student, Class of 2029</div>
+                    <div class="field"><span class="field-label">INSTITUTION:</span> Eastern Virginia Medical School (EVMS)</div>
+                    <div class="field"><span class="field-label">EMAIL:</span> <a href='mailto:lijer.2214@gmail.com'>lijer.2214@gmail.com</a></div>
+                    <div class="field"><span class="field-label">PHONE:</span> (202) 417-6801</div>
+                    <div class="field"><span class="field-label">GITHUB:</span> <a href="https://github.com/sb33ries" target="_blank">github.com/sb33ries</a></div>
+                    
+                    <p><strong>BACKGROUND:</strong> First year medical student with a strong background in data science, machine learning, computational problem solving, and innovation. Interested in the intersection of imaging, informatics, and clinical medicine.</p>
+                    
+                    <p><strong>EDUCATION:</strong></p>
+                    <ul>
+                        <li><strong>Doctor of Medicine (MD)</strong> – EVMS at ODU (Expected May 2029)</li>
+                        <li><strong>Bachelor of Science (BS)</strong> – William & Mary, Chemistry & Data Science (December 2024)</li>
+                    </ul>
+                    
+                    <p><strong>CV:</strong> <a href="assets/Shinjer_Li_CV.pdf" target="_blank">View CV (PDF)</a></p>
+                </section>
+
+                <!-- RESEARCH SECTION -->
+                <section class="simplified-section">
+                    <h2>RESEARCH WORK</h2>
+                    
+                    <h3>Publications</h3>
+                    <ul class="simplified-list">
+                        <li>
+                            <strong>RAMM: A Robotic, Autonomous Magnetic field Mapper</strong><br>
+                            <em>Shinjer Li, Samuel J. Rubin, Tyler Meldrum · 2025</em><br>
+                            <a href="https://www.sciencedirect.com/science/article/pii/S2468067225000781" target="_blank">View publication</a>
+                        </li>
+                        <li>
+                            <strong>Computational Methods in NMR Relaxometry</strong><br>
+                            <em>Shinjer Li · 2024</em><br>
+                            <a href="https://scholarworks.wm.edu/handle/internal/11734" target="_blank">View publication</a>
+                        </li>
+                    </ul>
+
+                    <h3>Conference Presentations</h3>
+                    <ul class="simplified-list">
+                        <li>
+                            <strong>CPMG Categorization of Pottery Sherds with t-SNE and UMAP</strong><br>
+                            <em>SERMACS · Atlanta, GA · 2024</em><br>
+                            <a href="assets/pottery_poster 1.pdf" target="_blank">View presentation</a>
+                        </li>
+                        <li>
+                            <strong>Quantification of NMR Relaxometry Data with Machine Learning</strong><br>
+                            <em>ENC · Pacific Grove, CA · 2024</em><br>
+                            <a href="assets/ENC poster.pdf" target="_blank">View presentation</a>
+                        </li>
+                        <li>
+                            <strong>Designing Low-cost Resistive Coils for Improving Field Homogeneity in Single-sided NMR Systems</strong><br>
+                            <em>SERMACS · Durham, NC · 2023</em><br>
+                            <a href="assets/ShimCity SERMCAS poster.pdf" target="_blank">View presentation</a>
+                        </li>
+                    </ul>
+
+                    <h3>Ongoing Work</h3>
+                    <ul class="simplified-list">
+                        <li><strong>Quantification of NMR Relaxometry Data with Machine Learning</strong> (Drafting manuscript)</li>
+                        <li><strong>Pacemaker Post-TAVR: Evaluation of Clinical Outcomes</strong> (Peer Review)</li>
+                        <li><strong>DASI-guided Valve-in-Valve TAVR With Leaflet Modification</strong> (Submitted)</li>
+                        <li><strong>Percutaneous Exclusion Of Ascending Aortic Pseudoaneurysm With Coils</strong> (Submitted)</li>
+                        <li><strong>Complex Valve-in-ring Transcatheter Mitral Valve Replacement</strong> (Submitted)</li>
+                    </ul>
+                </section>
+
+                <!-- OTHER WORKS SECTION -->
+                <section class="simplified-section">
+                    <h2>OTHER WORKS</h2>
+                    
+                    <h3>Projects</h3>
+                    <ul class="simplified-list">
+                        <li>
+                            <strong>Math Simulations</strong> - Basic simulations based on newtonian physics<br>
+                            <a href="https://sb33ries.github.io/brainrot/" target="_blank">Live Demo</a>
+                        </li>
+                        <li>
+                            <strong>Plots</strong> - Showcase of basic plots for side project<br>
+                            <a href="https://sb33ries.github.io/DATA303_finalproject" target="_blank">Live Demo</a>
+                        </li>
+                        <li>
+                            <strong>Color Guesser</strong> - Game where you can test your color perception<br>
+                            <a href="https://sb33ries.github.io/colorgame/" target="_blank">Live Demo</a>
+                        </li>
+                    </ul>
+
+                    <h3>Art Portfolio</h3>
+                    <div class="simplified-gallery">
+                        <img src="assets/dog.jpg" alt="Art piece 1" class="simplified-art">
+                        <img src="assets/eyes.jpg" alt="Art piece 2" class="simplified-art">
+                        <img src="assets/headshot.jpg" alt="Art piece 3" class="simplified-art">
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
     <!-- Closed Folder Loading Screen -->
     <div id="folder-closed">
         <div class="closed-folder" onclick="openFolder()" id="closedFolderElement">
@@ -40,6 +161,10 @@ Maybe remove some socities
 
     <!-- Main Portfolio Content -->
     <div id="portfolio-container">
+        <!-- Simple View Toggle Button -->
+        <button class="simple-view-toggle" onclick="switchToSimplified()">
+            📄 SIMPLE VIEW
+        </button>
         <div id="closedFolderElement">
             <!-- Close File Button - Try different options by uncommenting -->
             
