@@ -1399,8 +1399,8 @@ li {
 /* Simple View Toggle Button (on full portfolio) */
 .simple-view-toggle {
     position: absolute;
-    top: 47%;
-    right: -180px;
+    top: 2%;
+    right: -120px;
     background: #8b7355;
     color: #f4ead5;
     border: 2px solid #6b5845;

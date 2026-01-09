@@ -34,7 +34,7 @@ function updateFolderTilt() {
     if (portfolio && portfolio.classList.contains('active')) {
         // const subtleTiltX = -percentY * 3;
         // Disable Y tilt only on research tab (change 'research' to any tab name you want)
-        const noTiltTabs = ['research', 'other-works'];
+        const noTiltTabs = ['research', 'other-works', 'ct-scan'];
 
         const subtleTiltX = noTiltTabs.includes(window.currentTab) ? 0 : -percentY * 3;
         const subtleTiltY = noTiltTabs.includes(window.currentTab) ? 0 :  percentX * 2;
