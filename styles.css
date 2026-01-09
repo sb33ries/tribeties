@@ -1399,25 +1399,26 @@ li {
 /* Simple View Toggle Button (on full portfolio) */
 .simple-view-toggle {
     position: absolute;
-    top: 2%;
-    right: -120px;
-    background: #8b7355;
-    color: #f4ead5;
-    border: 2px solid #6b5845;
-    padding: 12px 24px;
+    top: 30px;
+    right: 30px;
+    background: #f4ead5;
+    color: #2c2416;
+    border: 2px solid #8b7355;
+    padding: 10px 20px;
     font-family: 'Courier New', monospace;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
     cursor: pointer;
     border-radius: 4px;
     transition: all 0.3s ease;
     z-index: 100;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
 .simple-view-toggle:hover {
-    background: #9b8365;
-    transform: translateY(-2px);
+    background: #e8dfc8;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
 }
 
 /* Responsive Adjustments */
