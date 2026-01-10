@@ -62,6 +62,17 @@ function closeFolder() {
     const portfolio = document.getElementById('portfolio-container');
     const folderClosed = document.getElementById('folder-closed');
     
+    // Stop heart viewer if it's running
+    if (heartViewer) {
+        stopHeartViewer();
+    }
+    
+    // Close CT viewer if it's open
+    const ctPanel = document.getElementById('ctViewerPanel');
+    if (ctPanel && ctPanel.classList.contains('open')) {
+        ctPanel.classList.remove('open');
+    }
+    
     // Add closing animation class
     portfolio.classList.add('closing');
     
@@ -80,7 +91,9 @@ function closeFolder() {
 
         tabs[0].classList.add('active');
         document.getElementById('welcome').classList.add('active');
-
+        
+        // Reset current tab tracker
+        window.currentTab = 'welcome';
         
         updateFolderTilt();
     }, 800);
